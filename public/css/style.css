@@ -1,0 +1,80 @@
+/*------------------------------------------------------------------
+[Global Stylesheet]
+LESS Framework
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. html/body
+2. Layout & Background / #container
+3. Inner Content / #main
+4. Footer / footer
+
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[1. html/body ]
+*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Helvetica Neue", "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+  font-size: 0.7692307692307692em;
+  font-weight: 400;
+  text-decoration: none;
+  background: #ffffff;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  letter-spacing: 0.1em;
+}
+a {
+  text-decoration: none;
+  color: #339ea9;
+}
+a:visited {
+  color: #25727a;
+}
+a:hover {
+  color: #57c1cc;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  letter-spacing: 0.09em;
+}
+.clear {
+  float: none;
+  clear: both;
+}
+::selection,
+::-moz-selection,
+::-webkit-selection {
+  background: #407b96;
+  color: #f4f6ee;
+}
+/*------------------------------------------------------------------
+[2. Layout structure & Background ]
+*/
+/*------------------------------------------------------------------
+[3. Inner Content ]
+*/
+/*------------------------------------------------------------------
+[4. Footer ]
+*/
+/* Variables
+ * Variables to customize the look and feel of Bootstrap
+ * ----------------------------------------------------- */
+/* Mixins
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
