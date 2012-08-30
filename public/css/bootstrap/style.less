@@ -32,12 +32,21 @@ body {
 [2. Layout structure & Background ]
 */
 
+
+/*------------------------------------------------------------------
+[3. Header ]
+*/
+
 #mainNav {
   margin-top: 40px;
   z-index: 20;
 
   .brand {
-    width: 118px;
+    width: 116px;
+  }
+
+  .navbar .nav > li > a {
+    font-size: 1.5em;
   }
 }
 
@@ -48,8 +57,32 @@ body {
   }
 }
 
+.navbar {
+  a.brand {
+    padding: 5px 20px;
+  }
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+  .avatar {
+    float: left;
+    width: 40px;
+    height: 40px;
+    padding-right: 5px;
+  }
+  .fullname, small {
+    display: block;
+  }
+}
+
+
+/*------------------------------------------------------------------
+[4. Inner Content ]
+*/
+
+
 section.container {
-  //margin-top: 80px;
   margin-bottom: 35px;
   height: 100%;
   min-height: 100%;
@@ -64,7 +97,6 @@ body > section > div.row {
 .row {
   width: 100%;
   max-width: 1140px;
-  //overflow: hidden;
 }
 
 #actions {
@@ -75,9 +107,10 @@ body > section > div.row {
 }
 
 #content {
+  //min-width: 800px;
   padding-left: 150px;
   padding-top: 20px;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 #listings {
@@ -90,13 +123,17 @@ body > section > div.row {
       margin-bottom: 5px;
       padding: 3px 10px 3px 3px;
       border: 1px solid @grayLighter;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid @blue;
+      }
     }
     
     div {
       margin-right: 2%;
     }
     .receiptImage {
-      //width: 30%;
     }
 
     .receiptPrice {
@@ -126,19 +163,19 @@ body > section > div.row {
 
       a {
         position: relative;
-        bottom: 0;
+        //bottom: 0;
       }
     }
   }
 }
 
 .threefourth, .flow > .threefourth {
-width: 71.5%;
+  width: 71.5%;
 }
  
 .fifth, .quarter, .half, .threefourth, .third, .twothird, .sixth, .fourfifth {
-margin: 0 0 0 2%;
-float: left;
+  margin: 0 0 0 2%;
+  float: left;
 }
 
 .receipt_view.threefourth {
@@ -192,44 +229,6 @@ float: left;
 #details {
   position: relative;
 }
-
-
-
-/*------------------------------------------------------------------
-[3. Header ]
-*/
-
-.navbar {
-  a.brand {
-    padding: 5px 20px;
-  }
-  .container {
-    width: 960px;
-    margin: 0 auto;
-  }
-  .avatar {
-    float: left;
-    width: 40px;
-    height: 40px;
-    padding-right: 5px;
-  }
-  .fullname, small {
-    display: block;
-  }
-}
-
-
-
-/*------------------------------------------------------------------
-[4. Inner Content ]
-*/
-
-#main {
-
-}
-
-
-
 
 /*------------------------------------------------------------------
 [5. Footer ]
