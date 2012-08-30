@@ -1,0 +1,50 @@
+
+<%= erb :'partials/_topnav' %>
+
+<section class="container">
+  <div class="row">
+    <aside id="actions">
+      <ul id="subNav" class="nav nav-tabs nav-stacked">
+        <li class="active"><a href="#listings">Listings</a></li>
+        <li><a href="#create">Create a new listing</a></li>
+        <li><a href="#direct">Direct Payments</a></li>
+        <li><a href="#extra">...</a></li>
+      </ul>
+    </aside>
+
+    <div id="content">
+      <div class="tab-content">
+        <section id="listings" class="threefourth receipts receipt_view tab-pane active">
+          <ul id="receiptList">
+            <%= erb :'partials/_receipt' %>
+          </ul>
+        </section>
+
+        <section id="create" class="tab-pane" >
+          <%= erb :'partials/_createListing' %>
+        </section>
+
+        <section id="direct" class="tab-pane">
+          <%= erb :'partials/_directPayment' %>
+        </section>
+        
+        <section id="extra" class="tab-pane">
+          ...
+        </section>
+
+        <div class="details-container full">
+          <%= erb :'partials/_listingFilters' %>
+        </div> 
+      </div>   
+    </div>
+  
+  </div>
+</div>
+
+
+<script>
+$('#subNav a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+</script>

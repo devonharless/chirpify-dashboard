@@ -1,0 +1,243 @@
+
+/*------------------------------------------------------------------
+[Global Stylesheet]
+LESS Framework
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Utilities
+2. Layout & Background / #container
+3. Header / .navbar
+4. Inner Content / #main
+5. Footer / footer
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Utilities ]
+*/
+
+body {
+  padding-top: 40px;
+}
+
+::selection, ::-moz-selection, ::-webkit-selection {
+  background: lighten(@black, 10%);
+  color: @blue;
+}
+
+/*------------------------------------------------------------------
+[2. Layout structure & Background ]
+*/
+
+#mainNav {
+  margin-top: 40px;
+  z-index: 20;
+
+  .brand {
+    width: 118px;
+  }
+}
+
+#subNav {
+  a {
+    padding-left: 15%;
+    font-size: 85%;
+  }
+}
+
+section.container {
+  //margin-top: 80px;
+  margin-bottom: 35px;
+  height: 100%;
+  min-height: 100%;
+  width: 99%;
+}
+
+body > section > div.row {
+  position: relative;
+  overflow: visible;
+}
+
+.row {
+  width: 100%;
+  max-width: 1140px;
+  //overflow: hidden;
+}
+
+#actions {
+  position: fixed;
+  top: 80px;
+  height: 100%;
+  width: 151px;
+}
+
+#content {
+  padding-left: 150px;
+  padding-top: 20px;
+  margin-top: 60px;
+}
+
+#listings {
+  margin-bottom: 50px;
+  min-height: 100px;
+
+  #receiptList {
+
+    li {
+      margin-bottom: 5px;
+      padding: 3px 10px 3px 3px;
+      border: 1px solid @grayLighter;
+    }
+    
+    div {
+      margin-right: 2%;
+    }
+    .receiptImage {
+      //width: 30%;
+    }
+
+    .receiptPrice {
+      min-width: 40%;
+      width: 150px;
+
+      p {
+        font-size: 0.9em;
+      }
+    }
+
+    .receiptExtras {
+      width: 70px;
+      padding-top: 1em;
+      text-align: right;
+      margin-right: 0;
+
+      span {
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+
+      small {
+        display: block;
+        line-height: 3em;
+      }
+
+      a {
+        position: relative;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.threefourth, .flow > .threefourth {
+width: 71.5%;
+}
+ 
+.fifth, .quarter, .half, .threefourth, .third, .twothird, .sixth, .fourfifth {
+margin: 0 0 0 2%;
+float: left;
+}
+
+.receipt_view.threefourth {
+  width: 68.5%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 2%;
+  padding-right: 2%;
+  max-width: 750px;
+}
+
+#content .details-container.full {
+  width: 100%;
+  margin: 0;
+}
+
+.full, .threefourth, .quarter {
+  margin: 0 2% 0 0;
+}
+#content .details-container .details-fixed-adjustment {
+  padding-left: 152px;
+  height: 0;
+}
+
+#content .details-container .threefourth {
+  float: left;
+  width: 65.5%;
+}
+
+.spacer {
+  height: 1px;
+  visibility: hidden;
+}
+
+#content .details-container {
+  position: fixed;
+  left: 0;
+  max-width: 1140px;
+  height: 0;
+}
+
+#content .details-container .quarter {
+  width: 30%;
+}
+
+.quarter {
+  float: left;
+}
+
+#details {
+  position: relative;
+}
+
+
+
+/*------------------------------------------------------------------
+[3. Header ]
+*/
+
+.navbar {
+  a.brand {
+    padding: 5px 20px;
+  }
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+  .avatar {
+    float: left;
+    width: 40px;
+    height: 40px;
+    padding-right: 5px;
+  }
+  .fullname, small {
+    display: block;
+  }
+}
+
+
+
+/*------------------------------------------------------------------
+[4. Inner Content ]
+*/
+
+#main {
+
+}
+
+
+
+
+/*------------------------------------------------------------------
+[5. Footer ]
+*/
+
+footer {
+
+}
+
+@import "bootstrap";
+

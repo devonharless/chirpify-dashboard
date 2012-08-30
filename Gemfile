@@ -4,6 +4,7 @@ gem "yajl-ruby"
 gem "em-websocket"
 gem 'rack'
 gem 'thin'
+gem 'sinatra'
 
 group :development do
 	gem "guard"
