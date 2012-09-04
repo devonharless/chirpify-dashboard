@@ -48,9 +48,17 @@ body {
   .navbar .nav > li > a {
     font-size: 1.5em;
   }
+
+  #mainTabs {
+    border-bottom: none;
+  }
+
+  #mainTabs li a {
+    padding-bottom: 8px;
+  }
 }
 
-#subNav {
+.actions .subNav {
   a {
     padding-left: 15%;
     font-size: 85%;
@@ -99,14 +107,14 @@ body > section > div.row {
   max-width: 1140px;
 }
 
-#actions {
+.actions {
   position: fixed;
   top: 80px;
   height: 100%;
   width: 151px;
 }
 
-#content {
+.inner-content {
   //min-width: 800px;
   padding-left: 150px;
   padding-top: 20px;
@@ -188,7 +196,7 @@ body > section > div.row {
   max-width: 750px;
 }
 
-#content .details-container.full {
+.inner-content .details-container.full {
   width: 100%;
   margin: 0;
 }
@@ -196,12 +204,12 @@ body > section > div.row {
 .full, .threefourth, .quarter {
   margin: 0 2% 0 0;
 }
-#content .details-container .details-fixed-adjustment {
+.inner-content .details-container .details-fixed-adjustment {
   padding-left: 152px;
   height: 0;
 }
 
-#content .details-container .threefourth {
+.inner-content .details-container .threefourth {
   float: left;
   width: 65.5%;
 }
@@ -211,14 +219,14 @@ body > section > div.row {
   visibility: hidden;
 }
 
-#content .details-container {
+.inner-content .details-container {
   position: fixed;
   left: 0;
   max-width: 1140px;
   height: 0;
 }
 
-#content .details-container .quarter {
+.inner-content .details-container .quarter {
   width: 30%;
 }
 
