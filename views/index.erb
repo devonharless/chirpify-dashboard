@@ -6,25 +6,25 @@
     <div class="row">
       <aside class="actions">
         <ul class="subNav nav nav-tabs nav-stacked">
-          <li class="active"><a href="#listings"><i class="icon-list"></i>Listings</a></li>
-          <li><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
+          <li class=""><a href="#listings"><i class="icon-list"></i>Listings</a></li>
+          <li class="active"><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
           <li><a href="#direct"><i class="icon-gift"></i>Direct Payments</a></li>
         </ul>
       </aside>
 
       <div id="listing_content" class="inner-content">
         <div class="tab-content">
-          <section id="listings" class="threefourth receipts receipt_view tab-pane active">
+          <section id="listings" class="threefourth receipts receipt_view tab-pane">
             <ul id="receiptList">
               <%= erb :'partials/_receipt' %>
             </ul>
           </section>
 
-          <div class="details-container full active">
+          <!--<div class="details-container full">
             <%= erb :'partials/_listingFilters' %>
-          </div> 
+          </div>--> 
 
-          <section id="create" class="tab-pane" >
+          <section id="create" class="tab-pane active" >
             <%= erb :'partials/_createListing' %>
           </section>
 
@@ -38,30 +38,13 @@
     </div> <!--row-->
   </section>
 
-  <section id="future_container" class="container tab-pane">
-    <div class="row">
-      <aside class="actions">
-        <ul class="subNav nav nav-tabs nav-stacked">
-          <li class="active"><a href="#future">...</a></li>
-        </ul>
-      </aside>
-
-      <div id="listing_content" class="inner-content">
-        <div class="tab-content">
-          <section id="future" class="threefourth receipts receipt_view tab-pane active">
-            Future content
-          </section>
-        
-        </div>   
-      </div>
-    
-    </div> <!--row-->
-  </section>
+  <!-- Future content tab -->
+  <%= erb :'partials/_futureContent' %>
+  
 </div> <!--tab-content-->
 
 
 <script>
-
 
 $('#mainTabs a').click(function (e) {
   e.preventDefault();
