@@ -12,18 +12,25 @@
       
         <div class="controls controls-row">
           
-          <div class="input-prepend span5">
+          <div class="input-prepend span4">
             <label class="control-label" for="createPrice">Price</label>
             <span class="add-on">$</span>
-            <input id="createPrice" class="span10" type="text" placeholder="Price">
+            <input id="createPrice" class="span9" type="text" placeholder="0">
           </div>
 
-          <div class="span6 input-prepend">
+          <div class="input-prepend span3">
+            <label class="control-label" for="createPrice">Currency</label>
+            <select id="createCurrency" class="span10">
+              <option>USD</option>
+            </select>
+          </div>
+
+          <div class="span4 input-prepend">
             <label class="control-label" for="createQty">Quantity</label>
-            <input id="createQty" class="span7" type="text" placeholder="Quantity">
+            <input id="createQty" class="span6" type="text" placeholder="1">
             or
-            <label class="inline add-on" for="qtyUnlimited">
-              <input id="qtyUnlimited" type="checkbox"> <small>unlimited</small>
+            <label class="add-on inline" for="qtyUnlimited">
+              <input id="qtyUnlimited" class="checkbox" type="checkbox"> unlimited
             </label>
           </div>
         </div> <!--controls-row-->
@@ -32,9 +39,9 @@
           
           <div class="span5">
             <label class="control-label" for="createListingType">Type</label>
-            <div class="btn-group">
-              <button class="btn btn-small span6">Physical</button>
-              <button class="btn btn-small span6">Digital</button>
+            <div class="btn-group" data-toggle="buttons-radio">
+              <button class="btn btn-small btn-info span6 active" type="button">Physical</button>
+              <button class="btn btn-small span6" type="button">Digital</button>
             </div>
           </div>
 
@@ -44,14 +51,14 @@
             <span class="add-on">days</span>
           </div>
 
-          <div class="span3 input-prepend">
+          <div class="span4 input-prepend">
             <label class="control-label" for="createShipCost">Cost to ship</label>
             <span class="add-on">$</span>
-            <input id="createShipCost" class="span6" type="text" placeholder="0">
+            <input id="createShipCost" class="span7" type="text" placeholder="0">
           </div>
         </div> <!--controls-row-->
 
-        <div class="controls controls-row">
+        <div class="controls controls-row createMedia">
           <div class="span3">
             <button type="button" class="btn btn-block">Upload</button>
             <br>
@@ -60,8 +67,9 @@
             </div>
           </div>
 
-          <div class="mediaContainer span8">
-            <div class="mediaCrop well" style="height: 200px">
+          <div class="mediaContainer span8 well">
+            <div class="mediaCrop">
+              <img src="http://placedog.com/320/200" alt="Listing image">
             </div>
           </div>
         </div> <!--controls-row-->
@@ -71,26 +79,25 @@
       <div class="span5">
 
         <div class="controls controls-row">
-          <button type="button" class="socialStreamBtns btn btn-info btn-large active span8"><i class="icon-ok icon-white"></i> Chirpify</button>
+          <button type="button" class="socialStreamBtns btn btn-info btn-large active span8"><i class="icon-ok icon-white pull-left"></i> Chirpify</button>
 
           <button type="button" class="btn span3 pull-right">edit</button>
         </div> <!--controls-row-->
 
         <div class="controls controls-row">
-          <button type="button" class="socialStreamBtns btn btn-info btn-large active span8" data-toggle="button"><i class="icon-ok icon-white"></i> Twitter</button>
+          <button type="button" class="socialStreamBtns btn btn-info btn-large active span8" data-toggle="button"><i class="icon-ok icon-white pull-left"></i> Twitter</button>
 
           <button type="button" class="btn span3 pull-right">edit</button>
         </div> <!--controls-row-->
 
         <div class="controls controls-row">
-          <button type="button" class="socialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle"></i> Facebook</button>
+          <button type="button" class="socialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Facebook</button>
         </div> <!--controls-row-->
 
         <div class="controls controls-row">
           <div class="btn-group">
             <a id="addSocialStream" class="btn btn-block dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="con-plus-sign"></i> Add a new social stream
-              <span class="caret"></span>
+              <i class="icon-plus-sign"></i> Add a new social stream
             </a>
 
             <ul class="dropdown-menu">

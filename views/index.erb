@@ -6,25 +6,25 @@
     <div class="row">
       <aside class="actions">
         <ul class="subNav nav nav-tabs nav-stacked">
-          <li class=""><a href="#listings"><i class="icon-list"></i>Listings</a></li>
-          <li class="active"><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
+          <li class="active"><a href="#listings"><i class="icon-list"></i>Listings</a></li>
+          <li class=""><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
           <li><a href="#direct"><i class="icon-gift"></i>Direct Payments</a></li>
         </ul>
       </aside>
 
       <div id="listing_content" class="inner-content">
         <div class="tab-content">
-          <section id="listings" class="threefourth receipts receipt_view tab-pane">
+          <section id="listings" class="threefourth receipts receipt_view tab-pane active">
             <ul id="receiptList">
               <%= erb :'partials/_receipt' %>
             </ul>
           </section>
 
-          <!--<div class="details-container full">
+          <div class="details-container full">
             <%= erb :'partials/_listingFilters' %>
-          </div>--> 
+          </div>
 
-          <section id="create" class="tab-pane active" >
+          <section id="create" class="tab-pane" >
             <%= erb :'partials/_createListing' %>
           </section>
 
