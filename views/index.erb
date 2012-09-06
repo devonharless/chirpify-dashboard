@@ -6,25 +6,25 @@
     <div class="row">
       <aside class="actions">
         <ul class="subNav nav nav-tabs nav-stacked">
-          <li class="active"><a href="#listings"><i class="icon-list"></i>Listings</a></li>
-          <li class=""><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
+          <li class=""><a href="#listings"><i class="icon-list"></i>Listings</a></li>
+          <li class="active"><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
           <li><a href="#direct"><i class="icon-gift"></i>Direct Payments</a></li>
         </ul>
       </aside>
 
       <div id="listing_content" class="inner-content">
         <div class="tab-content">
-          <section id="listings" class="threefourth receipts receipt_view tab-pane active">
+          <section id="listings" class="threefourth receipts receipt_view tab-pane ">
             <ul id="receiptList">
               <%= erb :'partials/_receipt' %>
             </ul>
           </section>
 
-          <div class="details-container full">
+          <div class="details-container full hide">
             <%= erb :'partials/_listingFilters' %>
           </div>
 
-          <section id="create" class="tab-pane" >
+          <section id="create" class="tab-pane active" >
             <%= erb :'partials/_createListing' %>
           </section>
 
@@ -43,29 +43,4 @@
   
 </div> <!--tab-content-->
 
-
-<script>
-
-$('#mainTabs a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-});
-
-$('.subNav a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-
-  if($(this).attr('href') != '#listings') {
-    $('.details-container').hide();
-  }
-  else {
-    $('.details-container').show();
-  }
-})
-
-$('#testModal').click(function (e) {
-  e.preventDefault();
-  $('#receiptModal').modal('show')
-})
-
-</script>
+<%= erb :'partials/_modals' %>
