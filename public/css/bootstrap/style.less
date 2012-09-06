@@ -271,20 +271,45 @@ body > section > div.row {
   margin-top: 3em;
 }
 
-#socialListingModal.modal {
-   top: 52%;
-   left: 90%;
-   width: 380px;
+#receiptModal.modal {
+  left: 50%;
+}
 
-   .mediaContainer {
+#socialListingModal.modal {
+   position: absolute;
+   margin: 40px 0 0;
+   top: 0;
+   right: 0;
+   width: 380px;
+   height: 100%;
+
+   .modal-body {
+    max-height: none;
+   }
+
+   /*.mediaContainer {
     padding: 10px;
     width: 290px;
     
     .mediaCrop {
       width: 290px;
       text-align: center
-    }
-  }
+    }*/
+  
+  
+  .span4 {
+    margin-left: 5px;
+   }  
+
+   .previewContent .span1 {
+    margin-left: 0;
+    margin-right: 15px;
+   }
+
+   small {
+    display: block;
+   }
+
 }
 
 #sideSocialTabs {

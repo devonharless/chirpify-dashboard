@@ -11,17 +11,39 @@
 
 <!-- Individual listing social stream view -->
 
-<div id="socialListingModal" class="modal hide" data-backdrop="false">
+<div id="socialListingModal" class="modal hide">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h4 class="title">Listing on Chirpify</h4>
   </div>
 
   <div class="modal-body">
-    <div class="mediaContainer span4 well">
-      <div class="mediaCrop">
-        <img src="http://placedog.com/280/190" alt="Listing image">
+    
+    <div class="controls controls-row">
+      <div class="mediaContainer span4 well">
+        <div class="mediaCrop">
+          <img src="http://placedog.com/300/190" alt="Listing image">
+        </div>
       </div>
-    </div>
-  </div>
+    </div><!--mediaContainer-->
+
+    <div class="previewContent controls controls-row">
+      <div class="span4">
+
+        <img class="avatar span1" src="https://twimg0-a.akamaihd.net/profile_images/2375081376/uumqlie9le94yz4unwwt_normal.jpeg" alt="ChrisTeso">
+        <p class="listingText">http://chrp.in/3on Listing title and content here.</b>
+        <small>Posted on [timestamp] by ChrisTeso</small>
+
+      </div>
+    </div><!--userContent-->
+
+    <div class="controls controls-row">
+          
+      <div class="span4">
+        <label class="control-label" for="createListingDesc">Description</label>
+        <textarea id="createListingDesc" rows="3" placeholder="Additional listing content can go here."></textarea>
+      </div>
+    </div> <!--controls-row-->
+
+  </div><!--modal-body-->
 </div>

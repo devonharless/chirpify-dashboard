@@ -32,7 +32,6 @@ $(document).ready(function() {
 
   function showSocialStreams(e) {
     e.preventDefault();
-    console.log('hi there!');
 
     $('#socialListingModal').modal('show')
   }
