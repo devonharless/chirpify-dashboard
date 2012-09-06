@@ -9,22 +9,20 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">ChrisTeso <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="current-user">
-              <a href="/christeso" class="account-summary account-summary-small js-nav">
+              <a href="/christeso">
                 <div class="content">
-                  <div class="account-group js-mini-current-user">
-                    <img class="avatar" src="https://twimg0-a.akamaihd.net/profile_images/2375081376/uumqlie9le94yz4unwwt_normal.jpeg" alt="Chris Teso">
-                    <b class="fullname">ChrisTeso</b>
-                    <small>View profile</small>
-                  </div>
+                  <img class="avatar" src="https://twimg0-a.akamaihd.net/profile_images/2375081376/uumqlie9le94yz4unwwt_normal.jpeg" alt="Chris Teso">
+                  <b class="fullname">ChrisTeso</b>
+                  <small>View profile</small>
                 </div>
               </a>  
             </li>
             <li class="divider"></li>
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Social Streams</a></li>
+            <li><a href="#" data-toggle="dropdown">Account</a></li>
+            <li id="accountSocialStream" data-toggle="dropdown"><a href="#">Social Streams</a></li>
             <li class="divider"></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Sign out</a></li>
+            <li><a href="#" data-toggle="dropdown">Help</a></li>
+            <li><a href="#" data-toggle="dropdown">Sign out</a></li>
           </ul>
         </li>
       </ul>
@@ -42,3 +40,10 @@
     </ul>
   </div>
 </div>
+
+<script>
+$('#accountSocialStream a').click(function (e) {
+    e.preventDefault();
+    $('#socialStreamsModal').modal('show')
+  });
+</script>

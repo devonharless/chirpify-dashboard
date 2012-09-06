@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-  //Global vars
+  //Global click events
+
+  $('.editSocialStream').live('click', showSocialStreams);
 
   $('#mainTabs a').click(function (e) {
     e.preventDefault();
@@ -25,16 +27,13 @@ $(document).ready(function() {
   //Individual modal
   $('.individualListing').click(function (e) {
     e.preventDefault();
-    $('#receiptModal').modal('show')
+    $('#receiptModal').modal('show');
   })
-
-  $('.editSocialStream').live('click', showSocialStreams);
 
   function showSocialStreams(e) {
     e.preventDefault();
 
     $('#socialListingModal').modal('show')
   }
-
 
 });

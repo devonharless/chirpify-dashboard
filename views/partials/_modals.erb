@@ -40,10 +40,37 @@
     <div class="controls controls-row">
           
       <div class="span4">
-        <label class="control-label" for="createListingDesc">Description</label>
-        <textarea id="createListingDesc" rows="3" placeholder="Additional listing content can go here."></textarea>
+        <label class="control-label pull-left" for="createListingDesc">Description</label>
+        <small class="pull-left">0/200</small>
+        <textarea id="createListingDesc" class="span4" placeholder="Additional listing content can go here."></textarea>
       </div>
     </div> <!--controls-row-->
 
+    <div class="controls controls-row">
+      <div class="span4">
+          
+        <span class="alert span5">Validation message / info text</span>
+
+        <div class="controls controls-row">
+          <button type="submit" class="btn">Done</button>
+
+          <button type="button" class="btn btn-link pull-right" data-dismiss="modal">Cancel</button>
+        </div> <!--controls-row-->
+      </div>
+    </div>
+
   </div><!--modal-body-->
+</div>
+
+
+<!-- Social Streams Global modal -->
+<div id="socialStreamsModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="title">Social Streams Linked</h4>
+  </div>
+  <div class="modal-body">
+    <button type="button" class="btn btn-small">Connect a profile</button>
+    <p>Social account content here.</p>
+  </div>
 </div>
