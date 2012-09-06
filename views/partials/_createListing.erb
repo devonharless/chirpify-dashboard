@@ -1,67 +1,126 @@
 <div id="createNew" class="container-fluid">
   <div class="row-fluid">
-    <div class="span7" style="border: 1px solid red;">
-      <h3>Create a Listing</h3>
+    <form class="">
+    
+      <div class="span7">
+        <h3>Create a Listing</h3>
 
-      <form class="">
-          <div class="controls">
-            <label class="control-label" for="createTitle">Title</label>
-            <input id="createTitle" class="span5" type="text" placeholder="Make it descriptive">
-          </div>
-        
-          <div class="controls controls-row">
-            
-            <div class="input-prepend">
-              <span class="add-on">$</span>
-              <input id="createPrice" class="span2" type="text">
-            </div>
-
-            <select class="span4">
-              <option>USD</option>
-            </select>
-
-            <div class="input-prepend input-append">
-              <label class="control-label" for="createQuantity">Quantity</label>
-              <input id="createQuantity" class="input-mini" type="text" placeholder="">
-              
-              <span class="add-on">
-                <input type="checkbox">Unlimited
-              </span>
-            </div>
+        <div class="controls">
+          <label class="control-label" for="createTitle">Title</label>
+          <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive">
+        </div>
+      
+        <div class="controls controls-row">
+          
+          <div class="input-prepend span5">
+            <label class="control-label" for="createPrice">Price</label>
+            <span class="add-on">$</span>
+            <input id="createPrice" class="span10" type="text" placeholder="Price">
           </div>
 
+          <div class="span6 input-prepend">
+            <label class="control-label" for="createQty">Quantity</label>
+            <input id="createQty" class="span7" type="text" placeholder="Quantity">
+            or
+            <label class="inline add-on" for="qtyUnlimited">
+              <input id="qtyUnlimited" type="checkbox"> <small>unlimited</small>
+            </label>
+          </div>
+        </div> <!--controls-row-->
 
-          <label class="control-label" for="createListingType">Type</label>
+        <div class="controls controls-row">
+          
+          <div class="span5">
+            <label class="control-label" for="createListingType">Type</label>
+            <div class="btn-group">
+              <button class="btn btn-small span6">Physical</button>
+              <button class="btn btn-small span6">Digital</button>
+            </div>
+          </div>
+
+          <div class="span3 input-prepend">
+            <label class="control-label" for="createShipTime">Ships in</label>
+            <input id="createQuantity"  class="span7" type="text" placeholder="0">
+            <span class="add-on">days</span>
+          </div>
+
+          <div class="span3 input-prepend">
+            <label class="control-label" for="createShipCost">Cost to ship</label>
+            <span class="add-on">$</span>
+            <input id="createShipCost" class="span6" type="text" placeholder="0">
+          </div>
+        </div> <!--controls-row-->
+
+        <div class="controls controls-row">
+          <div class="span3">
+            <button type="button" class="btn btn-block">Upload</button>
+            <br>
+            <div class="validate fileUpload breadcrumb">
+              <small>Validation message / info text here.</small>
+            </div>
+          </div>
+
+          <div class="mediaContainer span8">
+            <div class="mediaCrop well" style="height: 200px">
+            </div>
+          </div>
+        </div> <!--controls-row-->
+          
+      </div> <!--span7-->
+
+      <div class="span5">
+
+        <div class="controls controls-row">
+          <button type="button" class="socialStreamBtns btn btn-info btn-large active span8"><i class="icon-ok icon-white"></i> Chirpify</button>
+
+          <button type="button" class="btn span3 pull-right">edit</button>
+        </div> <!--controls-row-->
+
+        <div class="controls controls-row">
+          <button type="button" class="socialStreamBtns btn btn-info btn-large active span8" data-toggle="button"><i class="icon-ok icon-white"></i> Twitter</button>
+
+          <button type="button" class="btn span3 pull-right">edit</button>
+        </div> <!--controls-row-->
+
+        <div class="controls controls-row">
+          <button type="button" class="socialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle"></i> Facebook</button>
+        </div> <!--controls-row-->
+
+        <div class="controls controls-row">
           <div class="btn-group">
-            <button class="btn">Physical</button>
-            <button class="btn">Digital</button>
-          </div>
+            <a id="addSocialStream" class="btn btn-block dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="con-plus-sign"></i> Add a new social stream
+              <span class="caret"></span>
+            </a>
 
-          <label class="control-label" for="createShipTime">Ships in</label>
-          <input type="text" id="createQuantity" placeholder="0">
-          <small>days</small>
+            <ul class="dropdown-menu">
+              <li><a href="#">Twitter</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Facebook</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Instagram</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Tumblr</a></li>
+            </ul>
+          </div> <!--btn-group-->
 
-          <label class="control-label" for="createShipCost">Shipping cost</label>
-          <input type="text" id="createShipCost" placeholder="0">
+        </div> <!--controls-row-->
+      </div><!--.span5-->
 
-          <label class="control-label" for="createMedia">Media</label>
-          <button type="button" class="btn">Upload</button>
 
-          <div class="validate fileUpload">
-            <p>Validation message / info text here.</p>
-          </div>
-
-          <div class="mediaContainer">
-            <div class="mediaCrop">
-              <img src="http://placehold.it/300x200" alt="New listing image">
-            </div>
-          </div>
-            
+      <div class="span5">
+        
+        <span class="alert">Validation message / info text</span>
+ 
+        <div class="controls controls-row">
           <button type="submit" class="btn">Publish</button>
           <button type="button" class="btn">Save as draft</button>
-      </form>
 
-    </div>
+          <button type="button" class="btn btn-link pull-right">Clear</button>
+        </div> <!--controls-row-->
+      </div>
+
+    </form>
 
   </div>
 </div>
