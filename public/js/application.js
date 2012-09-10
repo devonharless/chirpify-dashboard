@@ -200,8 +200,6 @@ $(document).ready(function() {
   function showSocialStreams(e) {
     e.preventDefault();
 
-    console.log('e.target >> ', $(e.target).attr('class'))
-
     if($(e.target).hasClass('editNewSocialStream')) {
       $('#newSocialModal').modal('show');
     }
