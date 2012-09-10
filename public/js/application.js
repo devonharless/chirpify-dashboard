@@ -54,6 +54,8 @@ $(document).ready(function() {
 
   $('#editListingBtn').live('click', editIndividualListing);
   $('.individualBC').live('click', cancelEditListing);
+  $('.currentSocialStreamBtns').live('click', toggleCurrentSocialSettings);
+  $('.editSocialStream').live('click', showSocialStreams);
 
 
   // Edit Listing > Cancel
@@ -63,11 +65,14 @@ $(document).ready(function() {
   $('#currentSocialModal .closeModal').live('click', closeSocialContent);
   $('#currentSocialModal .saveEdits').live('click', saveSocialContent);
 
+  $('#editListing .pubSaveListing').live('click', saveListingChanges);
+
 
   //--- New Listing View --- 'partials/_createListing.erb'
   
-  $('.editSocialStream').live('click', showSocialStreams);
-  $('.pubSaveNewListing').live('click', pubSaveNewLisiting);
+  $('.editNewSocialStream').live('click', showSocialStreams);
+  $('.pubSaveNewListing').live('click', pubSaveNewListing);
+  $('.newSocialStreamBtns').live('click', toggleNewSocialSettings);
 
 
 
@@ -114,9 +119,35 @@ $(document).ready(function() {
     $('.editBC').remove();
   }
 
+  function saveListingChanges(e) {
+    //Save all of the user's changes - social context, input changes, etc.
+    $(e.target).button('loading');
+    $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
+    
+    //Time delay to fake saving of data, validation showing, etc.
+    setTimeout(function() {
+      //Ajax calls for submit/or save as draft depending on user selection. 
+      
+      //Reset the button state from loading to 'normal'
+      $(e.target).button('reset');
+
+      if(e.target.id == 'publishEdits')
+        $('.listingStatus').text('Published');
+      else
+        $('.listingStatus').text('Draft');
+
+      //On success, the user returns to the main listing view.
+      $('#editListing').addClass('hide');
+      $('#listing_ID').fadeIn();
+
+      $('.individualBC').addClass('active').html('Individual listing title');
+      $('.editBC').remove();
+    }, 4000);
+  }
+
   //--- New Listing View --- 'partials/_createListing.erb'
 
-  function pubSaveNewLisiting(e) {
+  function pubSaveNewListing(e) {
     e.preventDefault();
 
     //Loading state, validating state, etc
@@ -135,13 +166,43 @@ $(document).ready(function() {
     }, 4000);
   }
 
+  function toggleCurrentSocialSettings(e) {
+    e.preventDefault();
+
+    if($(e.target).hasClass('btn-info')) {
+      $(e.target).parent().find('.editSocialStream').remove();
+      $(e.target).removeClass('btn-info');
+      $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
+    }
+    else {
+      $(e.target).parent().append('<button type="button" class="editSocialStream btn span3 pull-right">edit</button>');
+      $(e.target).addClass('btn-info');
+      $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
+    }
+  }
+
+  function toggleNewSocialSettings(e) {
+    e.preventDefault();
+
+    if($(e.target).hasClass('btn-info')) {
+      $(e.target).parent().find('.editNewSocialStream').remove();
+      $(e.target).removeClass('btn-info');
+      $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
+    }
+    else {
+      $(e.target).parent().append('<button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>');
+      $(e.target).addClass('btn-info');
+      $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
+    }
+  }
+
   //Side frame is shown, allowing the user to review their listing info, social stream specific
   function showSocialStreams(e) {
     e.preventDefault();
 
-    console.log('e.target >> ', e.target.id)
+    console.log('e.target >> ', $(e.target).attr('class'))
 
-    if(e.target.id == 'editNewChirpify') {
+    if($(e.target).hasClass('editNewSocialStream')) {
       $('#newSocialModal').modal('show');
     }
     else {
