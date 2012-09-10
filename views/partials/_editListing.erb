@@ -1,15 +1,15 @@
-<%= erb :'modals/_newSocialContent' %>
+<%= erb :'modals/_currentSocialContent' %>
 
-<div id="createNew" class="container-fluid">
+<div id="editListing" class="container-fluid hide">
   <div class="row-fluid">
     <form class="">
     
       <div class="span7">
-        <h3>Create a Listing</h3>
+        <h3>Edit Listing</h3>
 
         <div class="controls">
           <label class="control-label" for="createTitle">Title</label>
-          <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive">
+          <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive" value="Listing title goes here, and it could be a very long title, but not toooo long">
         </div>
       
         <div class="controls controls-row">
@@ -17,7 +17,7 @@
           <div class="input-prepend span4">
             <label class="control-label" for="createPrice">Price</label>
             <span class="add-on">$</span>
-            <input id="createPrice" class="span9" type="text" placeholder="0">
+            <input id="createPrice" class="span9" type="text" placeholder="0" value="$20">
           </div>
 
           <div class="input-prepend span3">
@@ -29,10 +29,10 @@
 
           <div class="span4 input-prepend">
             <label class="control-label" for="createQty">Quantity</label>
-            <input id="createQty" class="span6" type="text" placeholder="1">
+            <input id="createQty" class="span6" type="text" placeholder="1" value="20">
             or
             <label class="add-on inline" for="qtyUnlimited">
-              <input id="qtyUnlimited" class="checkbox" type="checkbox"> unlimited
+              <input id="qtyUnlimited" class="checkbox" type="checkbox"> <small>unlimited</small>
             </label>
           </div>
         </div> <!--controls-row-->
@@ -49,24 +49,20 @@
 
           <div class="span3 input-prepend">
             <label class="control-label" for="createShipTime">Ships in</label>
-            <input id="createQuantity"  class="span7" type="text" placeholder="0">
-            <span class="add-on">days</span>
+            <input id="createQuantity"  class="span7" type="text" placeholder="0" value="6">
+            <span class="add-on"><small>days</small></span>
           </div>
 
           <div class="span4 input-prepend">
             <label class="control-label" for="createShipCost">Cost to ship</label>
             <span class="add-on">$</span>
-            <input id="createShipCost" class="span7" type="text" placeholder="0">
+            <input id="createShipCost" class="span7" type="text" placeholder="0" value="5">
           </div>
         </div> <!--controls-row-->
 
         <div class="controls controls-row createMedia">
           <div class="span3">
             <button type="button" class="btn btn-block">Upload</button>
-            <br>
-            <div class="validate fileUpload breadcrumb">
-              <small>Validation message / info text here.</small>
-            </div>
           </div>
 
           <div class="mediaContainer span8 well">
@@ -83,7 +79,7 @@
         <div class="controls controls-row">
           <button type="button" class="socialStreamBtns btn btn-info btn-large active span8"><i class="icon-ok icon-white pull-left"></i> Chirpify</button>
 
-          <button id="editNewChirpify" type="button" class="editSocialStream btn span3 pull-right">edit</button>
+          <button id="editChirpify" type="button" class="editSocialStream btn span3 pull-right">edit</button>
         </div> <!--controls-row-->
 
         <div class="controls controls-row">
@@ -123,7 +119,7 @@
           <button type="submit" class="pubSaveNewListing btn" data-loading-text="Publishing..." autocomplete="off">Publish</button>
           <button type="submit" class="pubSaveNewListing btn" data-loading-text="Saving..." autocomplete="off">Save as draft</button>
 
-          <button type="button" class="btn btn-link pull-right">Clear</button>
+          <button id="editListingCancel" type="button" class="btn btn-link pull-right">Cancel</button>
         </div> <!--controls-row-->
       </div>
 

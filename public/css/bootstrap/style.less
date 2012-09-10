@@ -271,11 +271,28 @@ body > section > div.row {
   margin-top: 3em;
 }
 
-#receiptModal.modal, #socialStreamsModal.modal {
+#socialStreamsModal.modal {
   left: 50%;
 }
 
-#socialListingModal.modal {
+#receiptModal.modal {
+  top: 10%;
+  width: 81%;
+  height: auto;
+  max-width: 950px;
+  margin: 36px 0 0 1.5%;
+
+  .modal-body {
+    max-height: none;
+  }
+
+  .breadcrumb {
+    width: 92%;
+    margin: 0;
+  }
+}
+
+#newSocialModal.modal, #currentSocialModal.modal {
    position: absolute;
    margin: 36px 0 0;
    top: 0;
@@ -287,16 +304,6 @@ body > section > div.row {
     max-height: none;
    }
 
-   /*.mediaContainer {
-    padding: 10px;
-    width: 290px;
-    
-    .mediaCrop {
-      width: 290px;
-      text-align: center
-    }*/
-  
-  
    .span4 {
     margin-left: 5px;
    }  
@@ -326,8 +333,12 @@ body > section > div.row {
    small {
     display: block;
    }
-
 }
+
+ #currentSocialModal.modal {
+  margin: 0;
+  height: auto;
+ }
 
 /*------------------------------------------------------------------
 [5. Imports ]

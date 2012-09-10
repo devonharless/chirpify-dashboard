@@ -1,0 +1,96 @@
+<!-- Individual listing modal -->
+
+<div id="receiptModal" class="modal hide">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <ul class="breadcrumb">
+      <li><a href="#" data-dismiss="modal">&#60; Back to Listings</a> <span class="divider">/</span></li>
+      <li class="individualBC active">Individual listing title</li>
+    </ul>
+
+  </div>
+  <div class="modal-body">
+    <%= erb :'partials/_editListing' %>
+    <div id="listing_ID" class="container-fluid">
+      <button id="editListingBtn" type="button" class="btn btn-info span1 pull-right">edit</button>
+      <div class="row-fluid">
+        
+          <div class="span7">
+            <span class="listingStatus label label-info">Draft</span>
+            <small class="listingDate">9.2.2012</small>
+            <h4 class="lead">Listing title goes here, and it could be a very long title, but not toooo long</h4>
+            
+            
+
+            <div class="controls controls-row">
+              
+              <div class="span3">
+                <dfn>Price</dfn>
+                <h4>$20</h4>
+              </div>
+
+              <div class="span6">
+                <dfn>Quantity</dfn>
+                <h4>10 sold / 20 total</h4>
+              </div>
+            </div> <!--controls-row-->
+
+            <div class="controls controls-row">
+              
+              <div class="span3">
+                <dfn>Type</dfn>
+                <h4>physical</h4>
+              </div>
+
+              <div class="span3">
+                <dfn>Shipping time</dfn>
+                <h4>4 days</h4>
+              </div>
+
+              <div class="span3">
+                <dfn>Shipping cost</dfn>
+                <h4>$5</h4>
+              </div>
+            </div> <!--controls-row-->
+
+            <div class="controls controls-row createMedia">
+
+              <div class="mediaContainer span9 well">
+                <div class="mediaCrop">
+                  <img src="http://placedog.com/320/200" alt="Listing image">
+                </div>
+              </div>
+            </div> <!--controls-row-->
+              
+          </div> <!--span7-->
+
+          <div class="span5">
+            <dfn>Social Streams</dfn>
+            <div class="controls controls-row">
+              <button type="button" class="socialStreamBtns btn btn-info disabled btn-large active span12"><i class="icon-ok icon-white pull-left"></i> Chirpify (default)</button>
+            </div> <!--controls-row-->
+
+            <div class="controls controls-row">
+              <button type="button" class="socialStreamBtns btn disabled btn-large span12" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter deactivated</button>
+            </div> <!--controls-row-->
+
+            <div class="controls controls-row">
+              <button type="button" class="socialStreamBtns btn disabled btn-large span12" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Facebook deactivated</button>
+            </div> <!--controls-row-->
+
+            <hr/>
+            <div class="controls controls-row">
+              <dfn>Listing Transactions</dfn>
+              <a class="btn pull-right" href="#"><i class="icon-tags"></i> See more</a>
+            </div> <!--controls-row-->
+
+            <div class="controls controls-row">
+              <dfn>Analytics</dfn>
+              <a class="btn pull-right" href="#"><i class="icon-signal"></i> See more</a>
+            </div> <!--controls-row-->
+          </div><!--.span5-->
+
+      </div> <!-- .row-fluid -->
+    </div> <!-- #listing_ID -->
+  </div> <!-- .modal-body -->
+</div> <!-- #receiptModal -->

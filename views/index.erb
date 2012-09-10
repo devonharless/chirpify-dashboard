@@ -14,15 +14,19 @@
 
       <div id="listing_content" class="inner-content">
         <div class="tab-content">
-          <section id="listings" class="threefourth receipts receipt_view tab-pane active">
-            <ul id="receiptList">
-              <%= erb :'partials/_receipt' %>
-            </ul>
-          </section>
+          <%= erb :'modals/_individualListing' %>
+          <div id="listings" class="test tab-pane active">
 
-          <div class="details-container full">
-            <%= erb :'partials/_listingFilters' %>
-          </div>
+            <section class="threefourth receipts receipt_view">
+              <ul id="receiptList">
+                <%= erb :'partials/_receipts' %>
+              </ul>
+            </section>
+
+            <div class="details-container full">
+              <%= erb :'partials/_listingFilters' %>
+            </div>
+          </div> <!--listings-->
 
           <section id="create" class="tab-pane" >
             <%= erb :'partials/_createListing' %>
@@ -40,7 +44,7 @@
 
   <!-- Future content tab -->
   <%= erb :'partials/_futureContent' %>
-
-  <%= erb :'partials/_modals' %>
   
 </div> <!--tab-content-->
+
+<%= erb :'modals/_globalSocialStream' %>
