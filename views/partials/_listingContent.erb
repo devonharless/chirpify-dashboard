@@ -1,0 +1,37 @@
+<div id="mainContainer" class="container tab-pane active">
+  <div class="row-fluid">
+    <div class="span2">
+      <div class="actions sidebar-nav">
+        <ul class="subNav nav nav-tabs nav-stacked">
+          <li class=""><a id="" href="#receipts"><i class="icon-tags"></i>Receipts</a></li>
+          <li class=""><a id="" href="#listings"><i class="icon-list"></i>Listings</a></li>
+          <li class="active"><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
+          <li><a href="#direct"><i class="icon-gift"></i>Direct Payments</a></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+    <div class="span10">
+      <div class="tab-content">
+        <section id="receipts" class="tab-pane">
+          <ul id="receiptList" class="longList">
+            <%= erb :'partials/_receipts' %>
+          </ul>
+        </section> <!--#listings-->
+
+        <section id="listings" class="tab-pane">
+          <ul id="listingList" class="longList">
+            <%= erb :'partials/_listings' %>
+          </ul>
+        </section> <!--#listings-->
+
+        <section id="create" class="tab-pane active" >
+          <%= erb :'partials/_createListing' %>
+        </section>
+
+        <section id="direct" class="tab-pane">
+          <%= erb :'partials/_directPayment' %>
+        </section>
+      </div>
+    </div><!--.span9-->
+  </div><!--.row-fluid-->
+</div> <!--#mainContainer-->

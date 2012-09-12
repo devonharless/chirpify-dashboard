@@ -1,133 +1,120 @@
-<%= erb :'modals/_newSocialContent' %>
-
 <div id="createNew" class="container-fluid">
   <div class="row-fluid">
-    <form class="">
-    
-      <div class="span7">
-        <h3>Create a Listing</h3>
-
-        <div class="controls">
-          <label class="control-label" for="createTitle">Title</label>
-          <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive">
-        </div>
-      
-        <div class="controls controls-row">
+    <div class="span12">
+      <h3>Create a Listing</h3>
+      <form>
+        <div class="span7">
           
-          <div class="input-prepend span4">
-            <label class="control-label" for="createPrice">Price</label>
-            <span class="add-on">$</span>
-            <input id="createPrice" class="span9" type="text" placeholder="0">
+          <div class="controls">
+            <label class="control-label" for="createTitle">Title</label>
+            <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive">
           </div>
 
-          <div class="input-prepend span3">
-            <label class="control-label" for="createPrice">Currency</label>
-            <select id="createCurrency" class="span10">
-              <option>USD</option>
-            </select>
-          </div>
+          <div class="controls controls-row">
+            <div class="input-prepend span5">
+              <label class="control-label" for="createPrice">Price</label>
+              <span class="add-on">$</span>
+              <input id="createPrice" class="span10" type="text" placeholder="0">
+            </div>
 
-          <div class="span4 input-prepend">
-            <label class="control-label" for="createQty">Quantity</label>
-            <input id="createQty" class="span6" type="text" placeholder="1">
-            or
-            <label class="add-on inline" for="qtyUnlimited">
-              <input id="qtyUnlimited" class="checkbox" type="checkbox"> unlimited
-            </label>
-          </div>
-        </div> <!--controls-row-->
+            <div class="span6 input-append">
+              <label class="control-label" for="createQty">Quantity</label>
+              <input id="createQty" class="span6" type="text" placeholder="1">
+              or
+              <label class="add-on inline" for="qtyUnlimited">
+                <input id="qtyUnlimited" class="checkbox" type="checkbox"> unlimited
+              </label>
+            </div>
+          </div> <!--controls-row-->
 
-        <div class="controls controls-row">
+          <div class="controls controls-row">
+            <div class="span5">
+              <label class="control-label" for="createListingType">Type</label>
+              <div class="btn-group" data-toggle="buttons-radio">
+                <button class="btn btn-small active" type="button">Physical</button>
+                <button class="btn btn-small" type="button">Digital</button>
+              </div>
+            </div>
+
+            <div class="span3 input-append">
+              <label class="control-label" for="createShipTime">Ships in</label>
+              <input id="createQuantity"  class="span6" type="text" placeholder="0">
+              <span class="add-on">days</span>
+            </div>
+
+            <div class="span3 input-prepend">
+              <label class="control-label" for="createShipCost">Cost</label>
+              <span class="add-on">$</span>
+              <input id="createShipCost" class="span5" type="text" placeholder="0">
+            </div>
+          </div> <!--controls-row-->
+
+          <div class="controls controls-row createMedia">
+            <div class="span3">
+              <button type="button" class="btn btn-block hidden-phone">Upload</button>
+              <button type="button" class="btn btn-block">Instagram</button>
+              <br>
+              <div class="validate fileUpload breadcrumb hidden-phone">
+                <small>Validation message / info text here.</small>
+              </div>
+            </div>
+
+            <div class="mediaContainer span8">
+              <div class="mediaCrop">
+                <img class="img-polaroid" src="http://placedog.com/310/200" alt="Listing image">
+              </div>
+            </div>
+          </div> <!--controls-row-->
+
+        </div> <!--span7 left content-->
+
+        <div id="rightSocialContent" class="span5">
+          <%= erb :'shared/_socialContent' %>
+          <label>Social Streams</label>
           
-          <div class="span5">
-            <label class="control-label" for="createListingType">Type</label>
-            <div class="btn-group" data-toggle="buttons-radio">
-              <button class="btn btn-small span6 active" type="button">Physical</button>
-              <button class="btn btn-small span6" type="button">Digital</button>
+          <div class="controls controls-row">
+            <button type="button" class="btn btn-primary btn-large active span8"><i class="icon-ok icon-white pull-left"></i> Chirpify</button>
+
+            <button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>
+          </div> <!--controls-row-->
+
+          <div class="controls controls-row">
+            <button type="button" class="newSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter</button>
+          </div> <!--controls-row-->
+
+          <div class="controls controls-row">
+            <button type="button" class="newSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Instagram</button>
+          </div> <!--controls-row-->
+
+          <div class="controls controls-row">
+            <div class="btn-group">
+              <a id="addSocialStream" class="btn btn-block dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="icon-plus-sign"></i> Add a new social stream
+              </a>
+
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#">Facebook</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Tumblr</a></li>
+              </ul>
+            </div> <!--btn-group-->
+          </div> <!--controls-row-->
+
+          <div class="controls controls-row">
+
+            <div class="controls controls-row">
+              <button type="submit" class="pubSaveNewListing btn btn-primary" data-loading-text="Publishing..." autocomplete="off">Publish</button>
+              <button type="submit" class="pubSaveNewListing btn" data-loading-text="Saving..." autocomplete="off">Save as draft</button>
+            </div> <!--controls-row-->
+
+            <div class="validate">
+              <span class="span12 validateMsg alert">Validation message / info text</span>
             </div>
-          </div>
+          </div><!--controls-row-->
 
-          <div class="span3 input-prepend">
-            <label class="control-label" for="createShipTime">Ships in</label>
-            <input id="createQuantity"  class="span7" type="text" placeholder="0">
-            <span class="add-on">days</span>
-          </div>
+        </div> <!--span5 right content-->
 
-          <div class="span4 input-prepend">
-            <label class="control-label" for="createShipCost">Cost to ship</label>
-            <span class="add-on">$</span>
-            <input id="createShipCost" class="span7" type="text" placeholder="0">
-          </div>
-        </div> <!--controls-row-->
-
-        <div class="controls controls-row createMedia">
-          <div class="span3">
-            <button type="button" class="btn btn-block">Upload</button>
-            <br>
-            <div class="validate fileUpload breadcrumb">
-              <small>Validation message / info text here.</small>
-            </div>
-          </div>
-
-          <div class="mediaContainer span8 well">
-            <div class="mediaCrop">
-              <img src="http://placedog.com/320/200" alt="Listing image">
-            </div>
-          </div>
-        </div> <!--controls-row-->
-          
-      </div> <!--span7-->
-
-      <div class="span5">
-
-        <div class="controls controls-row">
-          <button type="button" class="btn btn-info btn-large active span8"><i class="icon-ok icon-white pull-left"></i> Chirpify</button>
-
-          <button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>
-        </div> <!--controls-row-->
-
-        <div class="controls controls-row">
-          <button type="button" class="newSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter</button>
-        </div> <!--controls-row-->
-
-        <div class="controls controls-row">
-          <button type="button" class="newSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Facebook</button>
-        </div> <!--controls-row-->
-
-        <div class="controls controls-row">
-          <div class="btn-group">
-            <a id="addSocialStream" class="btn btn-block dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-plus-sign"></i> Add a new social stream
-            </a>
-
-            <ul class="dropdown-menu">
-              <li><a href="#">Twitter</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Facebook</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Instagram</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Tumblr</a></li>
-            </ul>
-          </div> <!--btn-group-->
-
-        </div> <!--controls-row-->
-      </div><!--.span5-->
-
-
-      <div class="span5">
-        
-        <span class="validateMsg alert">Validation message / info text</span>
- 
-        <div class="controls controls-row">
-          <button type="submit" class="pubSaveNewListing btn btn-info" data-loading-text="Publishing..." autocomplete="off">Publish</button>
-          <button type="submit" class="pubSaveNewListing btn" data-loading-text="Saving..." autocomplete="off">Save as draft</button>
-
-          <button type="button" class="btn btn-link pull-right">Clear</button>
-        </div> <!--controls-row-->
-      </div>
-
-    </form>
-
-  </div>
-</div>
+      </form>
+    </div> <!--span12-->
+  </div> <!--row-fluid-->
+</div> <!--#createNew-->

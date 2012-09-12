@@ -38,6 +38,16 @@ $(document).ready(function() {
     $(this).tab('show');
   })
 
+  $('#topNavAccount a').click(function (e) {
+    e.preventDefault();
+    $('#accountNavBtn').trigger('click')
+  });
+
+  $('#topNavSocial a').click(function (e) {
+    e.preventDefault();
+    $('#socialNavBtn').trigger('click')
+  });
+
 
   //--- Main Listing View --- 'index.erb' & partials/_receipt.erb' & 'partials/_listingFilters.erb'
 
@@ -71,9 +81,12 @@ $(document).ready(function() {
   //--- New Listing View --- 'partials/_createListing.erb'
   
   $('.editNewSocialStream').live('click', showSocialStreams);
+  $('#sideTabs a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
   $('.pubSaveNewListing').live('click', pubSaveNewListing);
   $('.newSocialStreamBtns').live('click', toggleNewSocialSettings);
-
 
 
   /*------------------------------------------------------------------
@@ -152,6 +165,7 @@ $(document).ready(function() {
 
     //Loading state, validating state, etc
     $(e.target).button('loading');
+    $('.pubSaveNewListing').die('click', pubSaveNewListing);
     $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
     
     //Time delay to fake saving of data, validation showing, etc.
@@ -160,23 +174,24 @@ $(document).ready(function() {
       
       //Reset the button state from loading to 'normal'
       $(e.target).button('reset');
+      $('.pubSaveNewListing').live('click', pubSaveNewListing)
 
-      //On success, the user returns to the main listing view.
-      $('#subNavListings').trigger('click');
+      //On success, the user stays on the same view - allows them to add more to their new listing/edit/etc.
+      
     }, 4000);
   }
 
   function toggleCurrentSocialSettings(e) {
     e.preventDefault();
 
-    if($(e.target).hasClass('btn-info')) {
+    if($(e.target).hasClass('btn-primary')) {
       $(e.target).parent().find('.editSocialStream').remove();
-      $(e.target).removeClass('btn-info');
+      $(e.target).removeClass('btn-primary');
       $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
     }
     else {
       $(e.target).parent().append('<button type="button" class="editSocialStream btn span3 pull-right">edit</button>');
-      $(e.target).addClass('btn-info');
+      $(e.target).addClass('btn-primary');
       $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
     }
   }
@@ -184,14 +199,14 @@ $(document).ready(function() {
   function toggleNewSocialSettings(e) {
     e.preventDefault();
 
-    if($(e.target).hasClass('btn-info')) {
+    if($(e.target).hasClass('btn-primary')) {
       $(e.target).parent().find('.editNewSocialStream').remove();
-      $(e.target).removeClass('btn-info');
+      $(e.target).removeClass('btn-primary');
       $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
     }
     else {
       $(e.target).parent().append('<button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>');
-      $(e.target).addClass('btn-info');
+      $(e.target).addClass('btn-primary');
       $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
     }
   }
@@ -200,12 +215,25 @@ $(document).ready(function() {
   function showSocialStreams(e) {
     e.preventDefault();
 
-    if($(e.target).hasClass('editNewSocialStream')) {
-      $('#newSocialModal').modal('show');
+    $('#newStreamPanel').show();
+
+    var newWidth = $('#rightSocialContent').width() + 'px';
+    //var yPos = $('#createNew').offset().top;
+    //var xPos = $('#rightSocialContent').offset().left;
+    var newHeight = $(window).height() - 120;
+    console.log(newHeight)
+    $('#newStreamPanel').width(newWidth)
+    $('#newStreamPanel').height(newHeight);
+    $('#newStreamPanel').offset({ top: yPos, left: xPos })
+    //$('#newStreamPanel').css('top: 200px');
+    //$('#newStreamPanel').css('left:' + xPos);
+
+    /*if($(e.target).hasClass('editNewSocialStream')) {
+      //$('#newSocialModal').modal('show');
     }
     else {
-      $('#currentSocialModal').modal('show');
-    }
+      //$('#currentSocialModal').modal('show');
+    }*/
   }
 
 });

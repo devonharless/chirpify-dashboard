@@ -1,49 +1,50 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div id="topNav" class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container-fluid">
-      
-      <a class="brand" href="http://chirpify.com/dashboard"><img src="/img/logo-nav.png" alt="Chirpify"></a>
-
-      <ul class="nav pull-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ChrisTeso <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li class="current-user">
-              <a href="/christeso">
-                <div class="content">
-                  <img class="avatar" src="https://twimg0-a.akamaihd.net/profile_images/2375081376/uumqlie9le94yz4unwwt_normal.jpeg" alt="Chris Teso">
-                  <b class="fullname">ChrisTeso</b>
-                  <small>View profile</small>
-                </div>
-              </a>  
-            </li>
-            <li class="divider"></li>
-            <li><a href="#" data-toggle="dropdown">Account</a></li>
-            <li id="accountSocialStream" data-toggle="dropdown"><a href="#">Social Streams</a></li>
-            <li class="divider"></li>
-            <li><a href="#" data-toggle="dropdown">Help</a></li>
-            <li><a href="#" data-toggle="dropdown">Sign out</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div> <!-- .container-->
-  </div> <!-- .navbar-inner-->
-</div> <!-- .navbar-->
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="http://chirpify.com/dashboard"><img width="80" src="/img/logo-nav.png" alt="Chirpify"></a>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle hidden-phone hidden-tablet" data-toggle="dropdown">ChrisTeso <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="current-user">
+                <a href="/christeso">
+                  <div class="content">
+                    <img class="avatar hidden-phone" src="https://twimg0-a.akamaihd.net/profile_images/2375081376/uumqlie9le94yz4unwwt_normal.jpeg" alt="Chris Teso">
+                    <b class="fullname">ChrisTeso</b>
+                    <small class="hidden-phone">View profile</small>
+                  </div>
+                </a>  
+              </li>
+              <li class="divider"></li>
+              <li id="topNavAccount"><a href="#" data-toggle="dropdown">Account</a></li>
+              <li id="topNavSocial" data-toggle="dropdown"><a href="#">Social Streams</a></li>
+              <li class="divider"></li>
+              <li><a href="#" data-toggle="dropdown">Help</a></li>
+              <li><a href="#" data-toggle="dropdown">Sign out</a></li>
+            </ul>
+          </li>
+        </ul> <!--nav .pull-right-->
+      </div><!--.nav-collapse -->
+    </div> <!--.container-->
+  </div> <!--.navbar-inner-->
+</div> <!--.navbar-fixed-top-->
 
 <div id="mainNav" class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <a class="brand" href="#"></a>
-    <ul id="mainTabs" class="nav nav-tabs">
+    <div class="container">
+      <ul id="mainTabs" class="nav nav-tabs">
 
-      <li class="active"><a href="#listing_container">$</a></li>
-      <li><a href="#future_container">...</a></li>
-    </ul>
+        <li class="active"><a id="mainNavBtn" href="#mainContainer"><i class="icon-home"></i></a></li>
+        <li><a id="socialNavBtn" href="#socialContainer"><i class="icon-globe"></i></a></li>
+        <li><a id="accountNavBtn" href="#accountContainer"><i class="icon-user"></i></a></li>
+        <li><a href="#futureContainer"><i class="icon-search"></i></a></li>
+      </ul>
+    </div> <!-- .container -->
   </div>
 </div>
-
-<script>
-$('#accountSocialStream a').click(function (e) {
-    e.preventDefault();
-    $('#socialStreamsModal').modal('show')
-  });
-</script>

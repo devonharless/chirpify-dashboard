@@ -10,8 +10,8 @@ LESS Framework
 1. Utilities
 2. Layout & Background / #container
 3. Header / .navbar
-4. Inner Content / #main
-5. Imports
+4. Inner Content / .container
+5. Responsiveness
 
 -------------------------------------------------------------------*/
 
@@ -20,12 +20,12 @@ LESS Framework
 */
 
 body {
-  padding-top: 40px;
+  //padding-top: 40px;
 }
 
 ::selection, ::-moz-selection, ::-webkit-selection {
-  background: lighten(@black, 10%);
-  color: @blue;
+  background: #525252;
+  color: #08C;
 }
 
 
@@ -40,58 +40,32 @@ body {
 [3. Header ]
 */
 
+#topNav, #mainNav {
+  margin-bottom: 0;
+}
+
 #mainNav {
-  margin-top: 40px;
+  margin-top: 38px;
   z-index: 20;
-
-  .brand {
-    width: 116px;
-  }
-
-  .navbar .nav > li > a {
-    font-size: 1.5em;
-  }
 
   #mainTabs {
     border-bottom: none;
+    //margin-left: 132px;
   }
 
   #mainTabs li a {
     padding-bottom: 8px;
   }
-}
 
-.actions .subNav.nav-tabs.nav-stacked {
-  margin-top: 20px;
-  
-  li {
-    margin-left: 21px;
-    border: none;
-  }
-  
-  a {
-    font-size: 10px;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-  }
-
-  li.active a {
-    background: @white;
-    .border-radius(6px 0 0 6px);
-    .box-shadow(-3px 1px 3px darken(#D6E0E6, 20%)); 
-
+  #mainTabs.nav > .active a {
+    background: #525252;
   }
 }
+
 
 .navbar {
   a.brand {
     padding: 5px 20px;
-  }
-  .container {
-    width: 960px;
-    margin: 0 auto;
   }
   .avatar {
     float: left;
@@ -110,7 +84,140 @@ body {
 */
 
 
-section.container {
+/* Side navigation panels */
+.container.tab-pane {
+  margin-top: 100px;
+}
+.actions { margin-top: 20px; }
+
+.actions .subNav.nav-tabs.nav-stacked {
+
+  a {
+    font-size: 10px;
+    //border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+
+    i {
+      margin-top: -1px;
+      padding-left: 5px;
+    }
+  }
+
+  li.active a {
+    background: #08C;
+    color: #fff;
+  }
+}
+
+/* Create Listing */
+
+.controls-row {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.createMedia.controls-row {
+  margin-top: 3em;
+}
+
+#addSocialStream {
+  margin: 2em 0;
+}
+
+/* Create Listing Social Panel */
+
+#newStreamPanel {
+ 
+ position: absolute;
+ top: 100px;
+ //right: 0;
+ //width: 100%;
+ height: 100%;
+ margin: 0;
+ z-index: 220;
+
+ .content {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #f1faff url('/img/bg.png') repeat;
+  border-left: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 210;
+ }
+
+ #sideTabs.nav-tabs.nav-stacked {
+  position: absolute;
+  left: -82px;
+  width: 85px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+
+  a {
+    font-size: 10px;
+    //border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .active a {
+    color: #fff;
+    background: #08C;
+  }
+
+ }
+
+ /*.modal-body {
+  max-height: none;
+ }
+
+ .mediaCrop {
+  margin: 0 auto;
+ }
+
+ .span4 {
+  margin-left: 5px;
+ }  
+
+ .span5 {
+  width: 290px;
+  margin-left: 0px;
+ }
+
+ .previewContent .span1 {
+  margin-left: 0;
+  margin-right: 15px;
+ }
+
+ small {
+  margin-left: 20px;
+  color: #f2f2f2;
+ }
+
+
+ textarea.span4 {
+  margin-left: 0;
+  padding-right: 45px;
+  height: 80px;
+ }
+
+ small {
+  display: block;
+ }*/
+}
+
+ #currentSocialModal.modal {
+  margin: 0;
+  height: auto;
+ }
+
+/*section.container {
   margin-bottom: 35px;
   height: 100%;
   min-height: 100%;
@@ -197,9 +304,9 @@ body > section > div.row {
       }
     }
   }
-}
+}*/
 
-.threefourth, .flow > .threefourth {
+/*.threefourth, .flow > .threefourth {
   width: 71.5%;
 }
  
@@ -258,12 +365,12 @@ body > section > div.row {
 
 #details {
   position: relative;
-}
+}*/
 
 
 /* Create Listing */
 
-#addSocialStream {
+/*#addSocialStream {
   margin: 2em 0;
 }
 
@@ -320,7 +427,7 @@ body > section > div.row {
 
    small {
     margin-left: 20px;
-    color: @grayLight;
+    color: #f2f2f2;
    }
 
 
@@ -338,13 +445,60 @@ body > section > div.row {
  #currentSocialModal.modal {
   margin: 0;
   height: auto;
- }
+ }*/
 
 /*------------------------------------------------------------------
-[5. Imports ]
+[5. Responsiveness ]
 */
 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+  #mainNav {
+    margin-top: 0;
+  }
+  #mainTabs {
+    margin-left: 25px;
+  }
+  #mainNav #mainTabs.nav > .active a {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .container.tab-pane {
+    margin-top: 20px;
+  }
+}
 
-
-@import "bootstrap";
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+  #mainNav {
+    margin-top: 0;
+  }
+  #mainTabs {
+    margin-left: 15px;
+  }
+  #mainNav #mainTabs.nav > .active a {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .container.tab-pane {
+    margin-top: 0px;
+  }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+  #mainNav {
+    margin-top: 0;
+  }
+  #mainTabs {
+    margin-left: 15px;
+  }
+  #mainNav #mainTabs.nav > .active a {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .container.tab-pane {
+    margin-top: 0px;
+  }
+}
 
