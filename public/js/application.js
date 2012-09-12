@@ -221,12 +221,10 @@ $(document).ready(function() {
     //var yPos = $('#createNew').offset().top;
     //var xPos = $('#rightSocialContent').offset().left;
     var newHeight = $(window).height() - 120;
-    console.log(newHeight)
+    //console.log(newHeight)
     $('#newStreamPanel').width(newWidth)
-    $('#newStreamPanel').height(newHeight);
+    //$('#newStreamPanel').height(newHeight);
     $('#newStreamPanel').offset({ top: yPos, left: xPos })
-    //$('#newStreamPanel').css('top: 200px');
-    //$('#newStreamPanel').css('left:' + xPos);
 
     /*if($(e.target).hasClass('editNewSocialStream')) {
       //$('#newSocialModal').modal('show');
