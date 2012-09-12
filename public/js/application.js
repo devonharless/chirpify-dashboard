@@ -185,12 +185,12 @@ $(document).ready(function() {
     e.preventDefault();
 
     if($(e.target).hasClass('btn-primary')) {
-      $(e.target).parent().find('.editSocialStream').remove();
+      $(e.target).parent().find('.editSocialStream').hide();
       $(e.target).removeClass('btn-primary');
       $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
     }
     else {
-      $(e.target).parent().append('<button type="button" class="editSocialStream btn span3 pull-right">edit</button>');
+      //$(e.target).parent().append('<button type="button" class="editSocialStream btn span3 pull-right">edit</button>');
       $(e.target).addClass('btn-primary');
       $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
     }
@@ -200,12 +200,13 @@ $(document).ready(function() {
     e.preventDefault();
 
     if($(e.target).hasClass('btn-primary')) {
-      $(e.target).parent().find('.editNewSocialStream').remove();
+      $(e.target).parent().find('.editNewSocialStream').hide();
       $(e.target).removeClass('btn-primary');
       $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
     }
     else {
-      $(e.target).parent().append('<button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>');
+      //$(e.target).parent().append('<button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>');
+      $(e.target).parent().find('.editNewSocialStream').show();
       $(e.target).addClass('btn-primary');
       $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
     }
@@ -217,14 +218,19 @@ $(document).ready(function() {
 
     $('#newStreamPanel').show();
 
-    var newWidth = $('#rightSocialContent').width() + 'px';
+    //Show the correct tab based on the which edit btn the user clicked
+    var shownTabId = '#' + $(e.target).attr('id');
+    $('#sideTabs').find('li a[href="'+shownTabId+'"]').trigger('click');
+
+    //var newWidth = $('#rightSocialContent').width() + 'px';
+    var newWidth = $(window).width() / 3 + 'px';
     //var yPos = $('#createNew').offset().top;
     //var xPos = $('#rightSocialContent').offset().left;
-    var newHeight = $(window).height() - 120;
-    //console.log(newHeight)
+    //var newHeight = $(window).height() - 120;
+    console.log(newWidth)
     $('#newStreamPanel').width(newWidth)
     //$('#newStreamPanel').height(newHeight);
-    $('#newStreamPanel').offset({ top: yPos, left: xPos })
+    //$('#newStreamPanel').offset({ top: yPos, left: xPos })
 
     /*if($(e.target).hasClass('editNewSocialStream')) {
       //$('#newSocialModal').modal('show');
