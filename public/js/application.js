@@ -127,10 +127,6 @@ $(document).ready(function() {
   // Edit Listing > Cancel
 
   $('#editListingCancel').live('click', cancelEditListing);
-  $('#currentSocialModal .close').live('click', closeSocialContent);
-  $('#currentSocialModal .closeModal').live('click', closeSocialContent);
-  $('#currentSocialModal .saveEdits').live('click', saveSocialContent);
-
   $('#editListing .pubSaveListing').live('click', saveListingChanges);
 
 
@@ -170,18 +166,6 @@ $(document).ready(function() {
     $('#individualListingPage .flowRef').append('<li class="editBC active">Edit listing</li>');
   }
 
-  function saveSocialContent(e) {
-    //Save the user's edits to their pre-existing social content for their listing
-    $('#currentSocialModal').modal('hide');
-  }
-
-  function closeSocialContent(e) {
-    e.preventDefault();
-
-    //No changes are saved
-    $('#currentSocialModal').modal('hide');
-  }
-
   //--- Edit Individual Listing View / Cancel --- 'shared/individualListing.erb'
 
   function cancelEditListing(e) {
@@ -218,6 +202,18 @@ $(document).ready(function() {
       $('.editBC').remove();
     }, 4000);
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
   //--- New Listing View --- 'partials/_createListing.erb'
 
