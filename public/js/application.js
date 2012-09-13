@@ -18,7 +18,7 @@ $(document).ready(function() {
   */
 
   //Bootstrap JS defaults
-  $('.nav-tabs').button();
+  $('.nav-tabs').button();  
 
 
   /*------------------------------------------------------------------
@@ -48,8 +48,21 @@ $(document).ready(function() {
     $('#socialNavBtn').trigger('click');
   });
 
+  var receiptNameAddress = '<div class="controls"><address><strong>User Name</strong><br>795 Folsom Ave, Suite 600<br>San Francisco, CA 94107<br></address></div>';
+  var receiptControls = '<div class="controls controls-row"><button type="button" class="downloadFile btn btn-success btn-small">Download file</button> <button type="button" class="deleteReceipt btn btn-small">Delete receipt</button></div>'
+  var receiptContent = receiptNameAddress + receiptControls;
+  //--- Listing View --- 'listingContent.erb' & partials/_listings.erb' & 'partials/_listingFilters.erb'
+  $('#receiptList .individualReceipt .receiptExtras .viewMore').popover({
+    toggle: true,
+    trigger: 'click',
+    title: 'Purchased by <a href="#">UserName</a>',
+    content: receiptContent,
+    html: true,
+    placement: 'top'
+  });
 
-  //--- Main Listing View --- 'index.erb' & partials/_receipt.erb' & 'partials/_listingFilters.erb'
+
+  //--- Listing View --- 'listingContent.erb' & partials/_listings.erb' & 'partials/_listingFilters.erb'
 
   // Show an individual listing after user selection of a receipt
   $('#listingList .individualListing').click(function (e) {
@@ -275,7 +288,7 @@ $(document).ready(function() {
   
     //var newWidth = $('#rightSocialContent').width() + 'px';
     if($(window).width() > 1200)
-      var newWidth = $('#rightSocialContent').width() + 'px';
+      var newWidth = $('.rightSocialContent').width() + 'px';
     else
       var newWidth = $(window).width() / 3 + 'px';
 
