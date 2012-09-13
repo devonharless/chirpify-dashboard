@@ -45,20 +45,36 @@ $(document).ready(function() {
 
   $('#topNavSocial a').click(function (e) {
     e.preventDefault();
-    $('#socialNavBtn').trigger('click')
+    $('#socialNavBtn').trigger('click');
   });
 
 
   //--- Main Listing View --- 'index.erb' & partials/_receipt.erb' & 'partials/_listingFilters.erb'
 
   // Show an individual listing after user selection of a receipt
-  $('.individualListing').click(function (e) {
+  $('#listingList .individualListing').click(function (e) {
     e.preventDefault();
 
     //show an individual listing & hide the main receipt/listing
-    $('#receiptModal').modal('show');
-    
-  })
+    $('#listings').removeClass('active');
+    $('#individualListingPage').addClass('active');
+  
+  });
+
+  $('.returnToListings').click(function (e) {
+    e.preventDefault();
+
+    //show an individual listing & hide the main receipt/listing
+    $('#listings').addClass('active');
+    $('#individualListingPage').removeClass('active');
+
+    $('#listing_ID').show();
+    $('#editListing').hide();
+
+    $('.individualBC').addClass('active').html('Individual listing title');
+    $('.editBC').remove();
+  
+  });
 
   // Individual Listing > Edit Listing
 
@@ -66,6 +82,25 @@ $(document).ready(function() {
   $('.individualBC').live('click', cancelEditListing);
   $('.currentSocialStreamBtns').live('click', toggleCurrentSocialSettings);
   $('.editSocialStream').live('click', showSocialStreams);
+  
+  $('.deleteListing').click(function (e) {
+    e.preventDefault();
+    $(e.target).button('loading');
+    //delete listing and return to the main listing view
+    setTimeout(function() {
+      $('#listings').addClass('active');
+      $('#individualListingPage').removeClass('active');
+      $('#editListing').hide();
+      $('#listing_ID').show();
+
+      $('.individualBC').addClass('active').html('Individual listing title');
+      $('.editBC').remove();
+      //Reset the button state from loading to 'normal'
+      $(e.target).button('reset');
+      
+    }, 4000);
+  
+  });
 
 
   // Edit Listing > Cancel
@@ -80,12 +115,17 @@ $(document).ready(function() {
 
   //--- New Listing View --- 'partials/_createListing.erb'
   
-  $('.editNewSocialStream').live('click', showSocialStreams);
   $('#sideTabs a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-})
+    e.preventDefault();
+    $(this).tab('show');
+  });
+
+  $('.editNewSocialStream').live('click', showSocialStreams);
+  $('.closePanel').live('click', dismissStreamChanges);
+  $('.savePanelChanges').live('click', saveStreamChanges);
   $('.pubSaveNewListing').live('click', pubSaveNewListing);
+
+  $('.typeToggle').live('click', toggleUpload);
   $('.newSocialStreamBtns').live('click', toggleNewSocialSettings);
 
 
@@ -102,11 +142,11 @@ $(document).ready(function() {
     //User intends to edit their pre-existing listing after reviewing their receipt info
     //View swaps to a view similars to 'partials/creatListing.erb', content in inputs, form, etc.
     
-    $('#listing_ID').fadeOut();
-    $('#editListing').removeClass('hide');
+    $('#listing_ID').hide();
+    $('#editListing').show();
 
     $('.individualBC').removeClass('active').html('<li><a href="#">Individual listing title</a> <span class="divider">/</span></li>');
-    $('.modal-header .breadcrumb').append('<li class="editBC active">Edit listing</li>');
+    $('#individualListingPage .flowRef').append('<li class="editBC active">Edit listing</li>');
   }
 
   function saveSocialContent(e) {
@@ -121,15 +161,15 @@ $(document).ready(function() {
     $('#currentSocialModal').modal('hide');
   }
 
-  //--- Edit Individual Listing View / Cancel --- 'modals/individualListing.erb'
+  //--- Edit Individual Listing View / Cancel --- 'shared/individualListing.erb'
 
   function cancelEditListing(e) {
     //Cancel editing an individual listing - return to the individual listing in passive viewing mode
-    $('#editListing').addClass('hide');
-    $('#listing_ID').fadeIn();
+    $('#editListing').hide();
+    $('#listing_ID').show();
 
     $('.individualBC').addClass('active').html('Individual listing title');
-    $('.editBC').remove();
+    $('.editBC').hide();
   }
 
   function saveListingChanges(e) {
@@ -150,8 +190,8 @@ $(document).ready(function() {
         $('.listingStatus').text('Draft');
 
       //On success, the user returns to the main listing view.
-      $('#editListing').addClass('hide');
-      $('#listing_ID').fadeIn();
+      $('#editListing').hide();
+      $('#listing_ID').show();
 
       $('.individualBC').addClass('active').html('Individual listing title');
       $('.editBC').remove();
@@ -205,39 +245,62 @@ $(document).ready(function() {
       $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
     }
     else {
-      //$(e.target).parent().append('<button type="button" class="editNewSocialStream btn span3 pull-right">edit</button>');
       $(e.target).parent().find('.editNewSocialStream').show();
       $(e.target).addClass('btn-primary');
       $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
     }
   }
 
+  function toggleUpload(e) {
+    e.preventDefault();
+
+    if($(e.target).hasClass('typeDigital')) 
+      $('.uploadFile').show();
+    else
+      $('.uploadFile').hide();
+  }
+
   //Side frame is shown, allowing the user to review their listing info, social stream specific
   function showSocialStreams(e) {
     e.preventDefault();
 
-    $('#newStreamPanel').show();
+    console.log('TEST')
+    $('.socialStreamPanel').show();
 
     //Show the correct tab based on the which edit btn the user clicked
     var shownTabId = '#' + $(e.target).attr('id');
+   
+    $('#sideTabs').find('li a[href="'+shownTabId+'"]').parent().removeClass('hide');
     $('#sideTabs').find('li a[href="'+shownTabId+'"]').trigger('click');
-
+  
     //var newWidth = $('#rightSocialContent').width() + 'px';
-    var newWidth = $(window).width() / 3 + 'px';
-    //var yPos = $('#createNew').offset().top;
-    //var xPos = $('#rightSocialContent').offset().left;
-    //var newHeight = $(window).height() - 120;
-    console.log(newWidth)
-    $('#newStreamPanel').width(newWidth)
-    //$('#newStreamPanel').height(newHeight);
-    //$('#newStreamPanel').offset({ top: yPos, left: xPos })
+    if($(window).width() > 1200)
+      var newWidth = $('#rightSocialContent').width() + 'px';
+    else
+      var newWidth = $(window).width() / 3 + 'px';
 
-    /*if($(e.target).hasClass('editNewSocialStream')) {
-      //$('#newSocialModal').modal('show');
-    }
-    else {
-      //$('#currentSocialModal').modal('show');
-    }*/
+    $('.socialStreamPanel').width(newWidth)
+  }
+
+  function dismissStreamChanges(e) {
+    $('.socialStreamPanel').hide();
+  }
+
+  function saveStreamChanges(e) {
+    e.preventDefault();
+    
+    //Saving state, validating state, etc
+    $(e.target).addClass('disabled');
+    $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
+    
+    //Time delay to fake saving of data, validation showing, etc.
+    setTimeout(function() {
+      //Store user's social stream changes for their new listing
+      
+      //On success, the user returns to the edit view - social stream panel hides
+      $(e.target).removeClass('disabled');
+      $('.socialStreamPanel').hide();
+    }, 4000);
   }
 
 });

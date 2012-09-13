@@ -3,28 +3,74 @@
     <div class="span2">
       <div class="actions sidebar-nav">
         <ul class="subNav nav nav-tabs nav-stacked">
-          <li class=""><a id="" href="#receipts"><i class="icon-tags"></i>Receipts</a></li>
+          <li class="active"><a id="" href="#receipts"><i class="icon-tags"></i>Receipts</a></li>
           <li class=""><a id="" href="#listings"><i class="icon-list"></i>Listings</a></li>
-          <li class="active"><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
+          <li class=""><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
           <li><a href="#direct"><i class="icon-gift"></i>Direct Payments</a></li>
         </ul>
       </div><!--/.well -->
     </div><!--/span-->
     <div class="span10">
       <div class="tab-content">
-        <section id="receipts" class="tab-pane">
-          <ul id="receiptList" class="longList">
-            <%= erb :'partials/_receipts' %>
-          </ul>
+        <section id="receipts" class="tab-pane active">
+          <div class="row-fluid receiptFilters well">
+            <div class="span6">
+              <dfn>Social Streams</dfn>
+              <div class="btn-group" data-toggle="buttons-checkbox">
+                <button type="button" class="btn">Chirpify</button>
+                <button type="button" class="btn">Twitter</button>
+                <button type="button" class="btn">Instagram</button>
+              </div>
+            </div>
+
+            <div class="span3">
+              <dfn>Activity</dfn>
+              <div class="btn-group" data-toggle="buttons-checkbox">
+                <button type="button" class="btn">Sold</button>
+                <button type="button" class="btn">Purchased</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <ul id="receiptList" class="longList">
+              <%= erb :'partials/_receipts' %>
+            </ul>
+          </div>
         </section> <!--#listings-->
+
+        <section id="individualListingPage" class="tab-pane">
+          <%= erb :'shared/_individualListing' %>
+        </section>
 
         <section id="listings" class="tab-pane">
-          <ul id="listingList" class="longList">
-            <%= erb :'partials/_listings' %>
-          </ul>
+          <div class="row-fluid listingFilters well">
+            <div class="span6">
+              <dfn>Social Streams</dfn>
+              <div class="btn-group" data-toggle="buttons-checkbox">
+                <button type="button" class="btn">Chirpify</button>
+                <button type="button" class="btn">Twitter</button>
+                <button type="button" class="btn">Instagram</button>
+              </div>
+            </div>
+
+            <div class="span3">
+              <dfn>Activity</dfn>
+              <div class="btn-group" data-toggle="buttons-checkbox">
+                <button type="button" class="btn">Sale</button>
+                <button type="button" class="btn">Fundraiser</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <ul id="listingList" class="longList">
+              <%= erb :'partials/_listings' %>
+            </ul>
+          </div>
         </section> <!--#listings-->
 
-        <section id="create" class="tab-pane active" >
+        <section id="create" class="tab-pane" >
           <%= erb :'partials/_createListing' %>
         </section>
 

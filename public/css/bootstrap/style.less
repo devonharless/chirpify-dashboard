@@ -126,13 +126,23 @@ body {
   margin: 2em 0;
 }
 
+.uploadFile {
+  margin: 5px 0 0;
+  padding: 5px 0 5px 5px;
+
+  small {
+    display: block;
+    font-size: 11px;    
+  }
+}
+
 /* Create Listing Social Panel */
 
-#newStreamPanel {
+.socialStreamPanel {
  
  position: absolute;
  top: 100px;
- height: 680px;
+ height: 685px;
  margin: 0;
  z-index: 220;
 
@@ -147,6 +157,7 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 210;
  }
+
  img {
   border: 1px solid #08C;
  }
@@ -216,235 +227,88 @@ body {
  }
 }
 
-/*section.container {
-  margin-bottom: 35px;
-  height: 100%;
-  min-height: 100%;
-  width: 99%;
+/* Receipts page / Individual Receipt Popover */
+
+#receipts {
+  .receiptFilters.well {
+    width: 70%;
+    margin: 0 auto;
+    background: #f4f4f4 url('/img/bg.png') repeat;
+  }
+
+  dfn {
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
+
+  }
 }
 
-body > section > div.row {
-  position: relative;
-  overflow: visible;
-}
-
-.row {
-  width: 100%;
-  max-width: 1140px;
-}
-
-.actions {
-  position: fixed;
-  top: 80px;
-  height: 100%;
-  width: 151px;
-  background: #D6E0E6;
-  .box-shadow(inset 1px -10px 20px darken(#D6E0E6, 10%)); 
-}
-
-.inner-content {
-  //min-width: 800px;
-  padding-left: 150px;
-  padding-top: 20px;
-  margin-top: 40px;
-}
-
+/* Listing page / Individual Listing view */
 #listings {
-  margin-bottom: 50px;
-  min-height: 100px;
+  .listingFilters.well {
+    width: 70%;
+    margin: 0 auto;
+    background: #f4f4f4 url('/img/bg.png') repeat;
+  }
 
-  #receiptList {
+  dfn {
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
 
-    li {
-      margin-bottom: 5px;
-      padding: 3px 10px 3px 3px;
-      border: 1px solid @grayLighter;
+  }
+}
+
+.longList {
+  width: 90%;
+  list-style: none;
+  margin: 0 auto;
+  padding: 1em 0 0;
+
+  .individualListing, .individualReceipt {
+    margin-top: 0.5em;
+    padding: 0;
+    background: #FCFCFC;
+    border-radius: 8px;
+    border-top: 1px solid #f4f4f4;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+
+    &:hover {
       cursor: pointer;
-
-      &:hover {
-        border: 1px solid @blue;
-      }
+      background: #f1faff;
     }
     
-    div {
-      margin-right: 2%;
-    }
-    .receiptImage {
-    }
-
-    .receiptPrice {
-      min-width: 40%;
-      width: 150px;
-
-      p {
-        font-size: 0.9em;
-      }
+    .listingImage, .receiptImage {
+      height: 100px;
+      background:url(http://placedog.com/300/300) no-repeat center center;
+      border-radius: 8px 0 0 8px;
+      overflow: hidden;
     }
 
-    .receiptExtras {
-      width: 70px;
-      padding-top: 1em;
-      text-align: right;
-      margin-right: 0;
+    h1 {
+      font-size: 25px;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
 
-      span {
-        font-size: 1.1em;
-        font-weight: 500;
-      }
+    .listingExtras, .receiptExtras {
+      max-width: 500px;
+      margin-top: 1em;
 
       small {
+        font-style: italic;
+        font-size: 12px;
         display: block;
-        line-height: 3em;
-      }
-
-      a {
-        position: relative;
-        //bottom: 0;
       }
     }
   }
-}*/
-
-/*.threefourth, .flow > .threefourth {
-  width: 71.5%;
-}
- 
-.fifth, .quarter, .half, .threefourth, .third, .twothird, .sixth, .fourfifth {
-  margin: 0 0 0 2%;
-  float: left;
 }
 
-.receipt_view.threefourth {
-  width: 68.5%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding-left: 2%;
-  padding-right: 2%;
-  max-width: 750px;
-}
-
-.inner-content .details-container.full {
-  width: 100%;
-  margin: 0;
-}
-
-.full, .threefourth, .quarter {
-  margin: 0 2% 0 0;
-}
-.inner-content .details-container .details-fixed-adjustment {
-  padding-left: 152px;
-  height: 0;
-}
-
-.inner-content .details-container .threefourth {
-  float: left;
-  width: 65.5%;
-}
-
-.spacer {
-  height: 1px;
-  visibility: hidden;
-}
-
-.inner-content .details-container {
-  position: fixed;
-  left: 0;
-  max-width: 1140px;
-  height: 0;
-}
-
-.inner-content .details-container .quarter {
-  width: 30%;
-}
-
-.quarter {
-  float: left;
-}
-
-#details {
-  position: relative;
-}*/
-
-
-/* Create Listing */
-
-/*#addSocialStream {
-  margin: 2em 0;
-}
-
-.createMedia.controls-row {
-  margin-top: 3em;
-}
-
-#socialStreamsModal.modal {
-  left: 50%;
-}
-
-#receiptModal.modal {
-  top: 10%;
-  width: 81%;
-  height: auto;
-  max-width: 950px;
-  margin: 36px 0 0 1.5%;
-
-  .modal-body {
-    max-height: none;
-  }
-
-  .breadcrumb {
-    width: 92%;
-    margin: 0;
-  }
-}
-
-#newSocialModal.modal, #currentSocialModal.modal {
-   position: absolute;
-   margin: 36px 0 0;
-   top: 0;
-   right: 0;
-   width: 380px;
-   height: 100%;
-
-   .modal-body {
-    max-height: none;
-   }
-
-   .span4 {
-    margin-left: 5px;
-   }  
-
-   .span5 {
-    width: 290px;
-    margin-left: 0px;
-   }
-
-   .previewContent .span1 {
-    margin-left: 0;
-    margin-right: 15px;
-   }
-
-   small {
-    margin-left: 20px;
-    color: #f2f2f2;
-   }
-
-
-   textarea.span4 {
-    margin-left: 0;
-    padding-right: 45px;
-    height: 80px;
-   }
-
-   small {
-    display: block;
-   }
-}
-
- #currentSocialModal.modal {
-  margin: 0;
-  height: auto;
- }*/
 
 /*------------------------------------------------------------------
 [5. Responsiveness ]
@@ -465,6 +329,10 @@ body > section > div.row {
   .container.tab-pane {
     margin-top: 20px;
   }
+
+  #listings .listingFilters.well, #receipts .receiptFilters.well {
+    width: 84%;
+  }
 }
 
 /* Landscape phone to portrait tablet */
@@ -482,6 +350,9 @@ body > section > div.row {
   .container.tab-pane {
     margin-top: 0px;
   }
+  #listings .listingFilters.well, #receipts .receiptFilters.well {
+    width: 84%;
+  }
 }
  
 /* Landscape phones and down */
@@ -498,6 +369,10 @@ body > section > div.row {
   }
   .container.tab-pane {
     margin-top: 0px;
+  }
+
+  #listings .listingFilters.well, #receipts .receiptFilters.well {
+    width: 88%;
   }
 }
 
