@@ -20,6 +20,10 @@ $(document).ready(function() {
   //Bootstrap JS defaults
   $('.nav-tabs').button();  
 
+  $(document).click(function(e) {
+    $('#receiptList .individualReceipt .receiptExtras .viewMore').popover('hide');
+  });
+
 
   /*------------------------------------------------------------------
   [2. Event Assignment ]
@@ -52,6 +56,10 @@ $(document).ready(function() {
   var receiptControls = '<div class="controls controls-row"><button type="button" class="downloadFile btn btn-success btn-small">Download file</button> <button type="button" class="deleteReceipt btn btn-small">Delete receipt</button></div>'
   var receiptContent = receiptNameAddress + receiptControls;
   //--- Listing View --- 'listingContent.erb' & partials/_listings.erb' & 'partials/_listingFilters.erb'
+  $('#receiptList .individualReceipt .receiptExtras .viewMore').click(function(event){
+       event.stopPropagation();
+   });
+
   $('#receiptList .individualReceipt .receiptExtras .viewMore').popover({
     toggle: true,
     trigger: 'click',
