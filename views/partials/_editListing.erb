@@ -57,7 +57,7 @@
           <div class="controls controls-row createMedia">
             <div class="span3">
               <button type="button" class="btn btn-block hidden-phone">Upload</button>
-              <button type="button" class="btn btn-block">Instagram</button>
+              <button type="button" class="instagramGallery hide btn btn-block">Instagram</button>
               <br>
               <div class="validate fileUpload breadcrumb hidden-phone">
                 <small>Validation message / info text here.</small>
@@ -73,25 +73,26 @@
 
         </div> <!--span7 left content-->
 
-        <div id="" class="span5">
+        <div class="rightSocialContent span5">
+          <%= erb :'shared/_currentSocialContent' %>
           <label>Social Streams</label>
           
           <div class="controls controls-row">
             <button type="button" class="btn btn-primary btn-large active span8"><i class="icon-ok icon-white pull-left"></i> Chirpify</button>
 
-            <button type="button" id="" class="btn span3 pull-right">edit</button>
+            <button type="button" id="chirpifyCurrentStream" class="editSocialStream btn span3 pull-right">edit</button>
           </div> <!--controls-row-->
 
           <div class="controls controls-row">
-            <button type="button" class="btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter</button>
+            <button type="button" class="currentSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter</button>
 
-            <button type="button" id="" class="hide btn span3 pull-right">edit</button>
+            <button type="button" id="twitterCurrentStream" class="editSocialStream hide btn span3 pull-right">edit</button>
           </div> <!--controls-row-->
 
           <div class="controls controls-row">
-            <button type="button" class="btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Instagram</button>
+            <button type="button" class="currentSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Instagram</button>
 
-            <button type="button" id="" class="hide btn span3 pull-right">edit</button>
+            <button type="button" id="instagramCurrentStream" class="editSocialStream hide btn span3 pull-right">edit</button>
           </div> <!--controls-row-->
 
           <div class="controls controls-row">

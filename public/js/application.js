@@ -55,7 +55,8 @@ $(document).ready(function() {
   var receiptNameAddress = '<div class="controls"><address><strong>User Name</strong><br>795 Folsom Ave, Suite 600<br>San Francisco, CA 94107<br></address></div>';
   var receiptControls = '<div class="controls controls-row"><button type="button" class="downloadFile btn btn-success btn-small">Download file</button> <button type="button" class="deleteReceipt btn btn-small">Delete receipt</button></div>'
   var receiptContent = receiptNameAddress + receiptControls;
-  //--- Listing View --- 'listingContent.erb' & partials/_listings.erb' & 'partials/_listingFilters.erb'
+  
+  //--- Receipt View --- 'listingContent.erb' & partials/_receipts.erb'
   $('#receiptList .individualReceipt .receiptExtras .viewMore').click(function(event){
        event.stopPropagation();
    });
@@ -70,7 +71,7 @@ $(document).ready(function() {
   });
 
 
-  //--- Listing View --- 'listingContent.erb' & partials/_listings.erb' & 'partials/_listingFilters.erb'
+  //--- Listing View --- 'listingContent.erb' & partials/_listings.erb'
 
   // Show an individual listing after user selection of a receipt
   $('#listingList .individualListing').click(function (e) {
@@ -103,6 +104,13 @@ $(document).ready(function() {
   $('.individualBC').live('click', cancelEditListing);
   $('.currentSocialStreamBtns').live('click', toggleCurrentSocialSettings);
   $('.editSocialStream').live('click', showSocialStreams);
+  $('#currentSocialPanel .closePanel').live('click', dismissCurrentStreamChanges);
+  $('#currentSocialPanel .savePanelChanges').live('click', saveCurrentStreamChanges);
+
+  $('#currentSideTabs a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });
   
   $('.deleteListing').click(function (e) {
     e.preventDefault();
@@ -137,9 +145,9 @@ $(document).ready(function() {
     $(this).tab('show');
   });
 
-  $('.editNewSocialStream').live('click', showSocialStreams);
-  $('.closePanel').live('click', dismissStreamChanges);
-  $('.savePanelChanges').live('click', saveStreamChanges);
+  $('.editNewSocialStream').live('click', showNewSocialStreams);
+  $('.socialStreamPanel .closePanel').live('click', dismissStreamChanges);
+  $('.socialStreamPanel .savePanelChanges').live('click', saveStreamChanges);
   $('.pubSaveNewListing').live('click', pubSaveNewListing);
 
   $('.typeToggle').live('click', toggleUpload);
@@ -177,6 +185,34 @@ $(document).ready(function() {
     $('.editBC').hide();
   }
 
+  function toggleCurrentSocialSettings(e) {
+    e.preventDefault();
+
+    console.log('CURRENT EDITING');
+    var editStreamID = '#' + $(e.target).next().attr('id');
+
+    if($(e.target).hasClass('btn-primary')) {
+      $(e.target).parent().find('.editSocialStream').hide();
+      $('#currentSideTabs').find('li a[href="'+editStreamID+'"]').parent().addClass('hide');
+      $(e.target).removeClass('btn-primary');
+      $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
+
+      //Hide instagram btn if Instagram is activated
+      if(editStreamID == '#instagramCurrentStream')
+        $('#editListing .instagramGallery').hide();
+    }
+    else {
+      $(e.target).parent().find('.editSocialStream').show();
+      $(e.target).addClass('btn-primary');
+      $('#currentSideTabs').find('li a[href="'+editStreamID+'"]').parent().removeClass('hide');
+      $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
+
+      //Show instagram btn if Instagram is activated
+      if(editStreamID == '#instagramCurrentStream')
+        $('#editListing .instagramGallery').show();
+    }
+  }
+
   function saveListingChanges(e) {
     //Save all of the user's changes - social context, input changes, etc.
     $(e.target).button('loading');
@@ -204,14 +240,48 @@ $(document).ready(function() {
   }
 
 
+  //---Edit Current Listing View --- 'partials/_editListing.erb'
 
 
+  function showSocialStreams(e) {
+    console.log('CURRENT SOCIAL STREAM');
+    e.preventDefault();
+    $('#currentSocialPanel').show();
 
+    //Show the correct tab based on the which edit btn the user clicked
+    var shownTabId = '#' + $(e.target).attr('id');
+    console.log('shownTabId >> ', shownTabId);
+    $('#currentSideTabs').find('li a[href="'+shownTabId+'"]').parent().removeClass('hide');
+    $('#currentSideTabs').find('li a[href="'+shownTabId+'"]').trigger('click');
 
+    if($(window).width() > 1200)
+      var newWidth = $('#editListing .rightSocialContent').width() + 'px';
+    else
+      var newWidth = $(window).width() / 3 + 'px';
 
+    $('#currentSocialPanel').width(newWidth);
+  }
 
+  function dismissCurrentStreamChanges(e) {
+    $('#currentSocialPanel').hide();
+  }
 
-
+  function saveCurrentStreamChanges(e) {
+    e.preventDefault();
+    
+    //Saving state, validating state, etc
+    $(e.target).addClass('disabled');
+    $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
+    
+    //Time delay to fake saving of data, validation showing, etc.
+    setTimeout(function() {
+      //Store user's social stream changes for their new listing
+      
+      //On success, the user returns to the edit view - social stream panel hides
+      $(e.target).removeClass('disabled');
+      $('#currentSocialPanel').hide();
+    }, 4000);
+  }
 
 
 
@@ -238,33 +308,32 @@ $(document).ready(function() {
     }, 4000);
   }
 
-  function toggleCurrentSocialSettings(e) {
-    e.preventDefault();
-
-    if($(e.target).hasClass('btn-primary')) {
-      $(e.target).parent().find('.editSocialStream').hide();
-      $(e.target).removeClass('btn-primary');
-      $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
-    }
-    else {
-      //$(e.target).parent().append('<button type="button" class="editSocialStream btn span3 pull-right">edit</button>');
-      $(e.target).addClass('btn-primary');
-      $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
-    }
-  }
-
   function toggleNewSocialSettings(e) {
     e.preventDefault();
 
+    console.log('NEW SOCIAL STREAM');
+
+    var editStreamID = '#' + $(e.target).next().attr('id');
+    
     if($(e.target).hasClass('btn-primary')) {
       $(e.target).parent().find('.editNewSocialStream').hide();
+      $('#sideTabs').find('li a[href="'+editStreamID+'"]').parent().addClass('hide');
       $(e.target).removeClass('btn-primary');
       $(e.target).find('i').addClass('icon-ban-circle').removeClass('icon-ok icon-white');
+
+      //Hide instagram btn if Instagram is activated
+      if(editStreamID == '#instagramStream')
+        $('#createNew .instagramGallery').hide();
     }
     else {
       $(e.target).parent().find('.editNewSocialStream').show();
       $(e.target).addClass('btn-primary');
+      $('#sideTabs').find('li a[href="'+editStreamID+'"]').parent().removeClass('hide');
       $(e.target).find('i').addClass('icon-ok icon-white').removeClass('icon-ban-circle');
+  
+      //Show instagram btn if Instagram is activated
+      if(editStreamID == '#instagramStream')
+        $('#createNew .instagramGallery').show();
     }
   }
 
@@ -277,11 +346,11 @@ $(document).ready(function() {
       $('.uploadFile').hide();
   }
 
-  //Side frame is shown, allowing the user to review their listing info, social stream specific
-  function showSocialStreams(e) {
+  //Side frame is shown, allowing the user to review their new listing info, social stream specific
+  function showNewSocialStreams(e) {
     e.preventDefault();
 
-    console.log('TEST')
+    console.log('NEW SOCIAL STREAM');
     $('.socialStreamPanel').show();
 
     //Show the correct tab based on the which edit btn the user clicked
@@ -290,14 +359,14 @@ $(document).ready(function() {
     $('#sideTabs').find('li a[href="'+shownTabId+'"]').parent().removeClass('hide');
     $('#sideTabs').find('li a[href="'+shownTabId+'"]').trigger('click');
   
-    //var newWidth = $('#rightSocialContent').width() + 'px';
     if($(window).width() > 1200)
-      var newWidth = $('.rightSocialContent').width() + 'px';
+      var newWidth = $('#createNew .rightSocialContent').width() + 'px';
     else
       var newWidth = $(window).width() / 3 + 'px';
 
-    $('.socialStreamPanel').width(newWidth)
+    $('.socialStreamPanel').width(newWidth);
   }
+
 
   function dismissStreamChanges(e) {
     $('.socialStreamPanel').hide();
