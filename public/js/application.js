@@ -20,10 +20,34 @@ $(document).ready(function() {
   //Bootstrap JS defaults
   $('.nav-tabs').button();  
 
+  //Popovers should be dismissed/toggled when a user clicks outside of the element. Ugh.
   $(document).click(function(e) {
     $('#receiptList .individualReceipt .receiptExtras .viewMore').popover('hide');
   });
 
+  //Infinite Scroll for Receipts - Referenced from https://github.com/paulirish/infinite-scroll, used in Isotope
+
+  $('#receiptList').infinitescroll({
+ 
+    navSelector  : "#receipt_nav",            
+                   // selector for the paged navigation (it will be hidden)
+    nextSelector : "#receipt_nav a:first",    
+                   // selector for the NEXT link (to page 2)
+    itemSelector : ".individualReceipt",
+                   // selector for all items you'll retrieve               
+  });
+
+  //Infinite Scroll for Listings, more of the same
+  
+  $('#listingList').infinitescroll({
+ 
+    navSelector  : "#listing_nav",            
+                   // selector for the paged navigation (it will be hidden)
+    nextSelector : "#listing_nav a:first",    
+                   // selector for the NEXT link (to page 2)
+    itemSelector : ".individualListing"
+                   // selector for all items you'll retrieve
+  });
 
   /*------------------------------------------------------------------
   [2. Event Assignment ]
@@ -51,6 +75,10 @@ $(document).ready(function() {
     e.preventDefault();
     $('#socialNavBtn').trigger('click');
   });
+
+  /* Social view events */
+
+  $('#socialList .removeSocialAccount').live('click', removeSocialAccount);
 
   var receiptNameAddress = '<div class="controls"><address><strong>User Name</strong><br>795 Folsom Ave, Suite 600<br>San Francisco, CA 94107<br></address></div>';
   var receiptControls = '<div class="controls controls-row"><button type="button" class="downloadFile btn btn-success btn-small">Download file</button> <button type="button" class="deleteReceipt btn btn-small">Delete receipt</button></div>'
@@ -158,8 +186,27 @@ $(document).ready(function() {
   [3. View-specific functions ]
   */
 
+  //---Social Accounts View --- 'partials/_socialContent.erb'
 
-  //--- Individual Listing View --- 'modals/individualListing.erb'
+  function removeSocialAccount(e) {
+    e.preventDefault();
+
+    //User intends to remove their activated social account from Chirpify
+    $(e.target).button('loading');
+    
+    //Time delay to fake saving of data, validation showing, etc.
+    setTimeout(function() {
+      //Ajax calls for submit/or save as draft depending on user selection. 
+      
+      //Reset the button state from loading to 'normal'
+      //$(e.target).button('reset');
+      $(e.target).parent().parent().parent().fadeOut();
+    }, 4000);
+
+  }
+
+
+  //--- Individual Listing View --- 'shared/_individualListing.erb'
 
   function editIndividualListing(e) {
     e.preventDefault();
@@ -188,7 +235,6 @@ $(document).ready(function() {
   function toggleCurrentSocialSettings(e) {
     e.preventDefault();
 
-    console.log('CURRENT EDITING');
     var editStreamID = '#' + $(e.target).next().attr('id');
 
     if($(e.target).hasClass('btn-primary')) {
@@ -284,7 +330,6 @@ $(document).ready(function() {
   }
 
 
-
   //--- New Listing View --- 'partials/_createListing.erb'
 
   function pubSaveNewListing(e) {
@@ -310,8 +355,6 @@ $(document).ready(function() {
 
   function toggleNewSocialSettings(e) {
     e.preventDefault();
-
-    console.log('NEW SOCIAL STREAM');
 
     var editStreamID = '#' + $(e.target).next().attr('id');
     
@@ -350,7 +393,6 @@ $(document).ready(function() {
   function showNewSocialStreams(e) {
     e.preventDefault();
 
-    console.log('NEW SOCIAL STREAM');
     $('.socialStreamPanel').show();
 
     //Show the correct tab based on the which edit btn the user clicked

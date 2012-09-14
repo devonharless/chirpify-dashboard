@@ -1,10 +1,10 @@
-<div id="mainContainer" class="container tab-pane active">
+<div id="mainContainer" class="container tab-pane">
   <div class="row-fluid">
     <div class="span2">
       <div class="actions sidebar-nav">
         <ul class="subNav nav nav-tabs nav-stacked">
-          <li class="active"><a id="" href="#receipts"><i class="icon-tags"></i>Receipts</a></li>
-          <li class=""><a id="" href="#listings"><i class="icon-list"></i>Listings</a></li>
+          <li class="active"><a id="receiptNav" href="#receipts"><i class="icon-tags"></i>Receipts</a></li>
+          <li class=""><a id="listingNav" href="#listings"><i class="icon-list"></i>Listings</a></li>
           <li class=""><a href="#create"><i class="icon-pencil"></i>New listing</a></li>
           <li><a href="#direct"><i class="icon-gift"></i>Direct Payments</a></li>
         </ul>
@@ -36,6 +36,9 @@
             <ul id="receiptList" class="longList">
               <%= erb :'partials/_receipts' %>
             </ul>
+            <nav id="receipt_nav" style="display: none; ">
+              <a href="/receipts/2.html"></a>
+            </nav>
           </div>
         </section> <!--#listings-->
 
@@ -67,6 +70,9 @@
             <ul id="listingList" class="longList">
               <%= erb :'partials/_listings' %>
             </ul>
+            <nav id="listing_nav" style="display: none; ">
+              <a href="/listings/2.html"></a>
+            </nav>
           </div>
         </section> <!--#listings-->
 
