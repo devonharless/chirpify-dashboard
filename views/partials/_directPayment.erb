@@ -2,6 +2,29 @@
   <div class="row-fluid">
     <div class="span12">
       <h3>Direct Payment</h3>
-    </div>
-  </div>
-</div>
+      
+      <p>Direct payments &amp; donations enable you to pay any Twitter account with one Tweet.</p>
+
+      <div class="controls">       
+        <div class="span4">       
+          <dfn class="control-label pull-left">Tweet</dfn>
+          <small class="charCount pull-right">0/140</small>
+        </div>
+        
+        <div class="clearfix"></div>
+      
+        <textarea id="createDirectPayment" class="span4" placeholder="Pay @username $amount for reason."></textarea>
+      </div>
+
+      <div class="controls">
+               
+        <button type="submit" id="sendDirectPayment" class="btn btn-primary" data-loading-text="Sending..." autocomplete="off">Send payment</button>
+
+        <div class="validate">
+          <span class="span4 validateMsg alert">Validation message / info text</span>
+        </div>
+      </div><!--controls-->
+      
+    </div> <!--span12-->
+  </div> <!--row-fluid-->
+</div> <!--container-fluid-->

@@ -3,7 +3,7 @@
     <div class="span2">
       <div class="actions sidebar-nav">
         <ul class="subNav nav nav-tabs nav-stacked">
-          <li class="active"><a ref="#userInfo"><i class="icon-list-alt"></i>Your info</a></li>
+          <li class="active"><a href="#settingInfo"><i class="icon-list-alt"></i>Your info</a></li>
           <li class=""><a href="#notifications"><i class="icon-bell"></i>Notifications</a></li>
           <li><a href="#paymentInfo"><i class="icon-briefcase"></i>Payments</a></li>
           <li><a href="#advanced"><i class="icon-cog"></i>Advanced</a></li>
@@ -12,20 +12,189 @@
     </div><!--/span-->
     <div class="span10">
       <div class="tab-content">
-        <section id="userInfo" class="tab-pane active">
-          <h3>User information</h3>
+        <section id="settingInfo" class="tab-pane">
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="span12">
+                <h3>Account Info</h3>
+                <form>
+                  <div class="span7">
+                    <div class="controls controls-row">
+                      <label class="control-label">Picture</label>
+                      <div class="row-fluid">
+                        <div class="userImage thumbnail span3"></div>
+
+                        <div class="uploadFile span5 hidden-phone">
+                          <button class="btn btn-small" type="button">Upload</button>
+                          <small>or use a social stream image</small>
+                        </div>
+
+                      </div> <!--row-fluid-->
+                    </div>
+                    
+                    <div class="controls">
+                      <label class="control-label" for="accountFullName">Name</label>
+                      <input id="accountFullName" class="span5" type="text" value="Chris Teso">
+                    </div>
+
+                    <div class="controls">
+                      <label class="control-label" for="chirpifyUsername">Username</label>
+                      <input id="chirpifyUsername" class="span5" type="text" value="ChrisTeso">
+                    </div>
+
+                    <div class="controls controls-row">
+
+                      <div class="span5">
+                        <label class="control-label" for="accountStreet">Street address</label>
+                        <input id="accountStreet"  class="span12" type="text" value="123 Somewhere St.">
+                        
+                      </div>
+
+                      <div class="span3">
+                        <label class="control-label" for="accountCity">City</label>
+                        <input id="accountCity"  class="span12" type="text" value="Portland"> 
+                      </div>
+
+                      <div class="span2">
+                        <label class="control-label" for="accountState">State</label>
+                        <select id="accountState" class="span11"> 
+                          <option>OR</option>
+                          <option>AL</option>
+                          <option>AR</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div> <!--controls-row-->
+
+                    <div class="controls controls-row">
+                      
+                      <div class="span2">
+                        <label class="control-label" for="accountZip">Zipcode</label>
+                        <input id="accountZip" class="span12" type="text" value="97209"> 
+                      </div>
+
+                      <div class="span3">
+                        <label class="control-label" for="accountCountry">Country</label>
+                        <select id="accountCountry" class="span12"> 
+                          <option>United States</option>
+                          <option>Country</option>
+                          <option>Country</option>
+                          <option>Country</option>
+                          <option>Country</option>
+                        </select>
+                      </div>
+
+                      <div class="span2">
+                        <label class="control-label" for="accountShipCharge">Shipping fee</label>
+                        <input id="accountShipCharge" class="checkbox" type="checkbox"> <small>Free</small>
+                      </div>
+
+                      <div class="span3">
+                        <label class="control-label" for="accountShipTime">Shipping time</label>
+                        <input id="accountShipTime" class="span4" type="text" value="5">  <small>days</small>
+                      </div>
+                    </div> <!--controls-row-->
+
+                    <div class="controls">
+                      <label class="control-label" for="accountEmail">Email</label>
+                      <input id="accountEmail" class="span5" type="text" value="christeso@gmail.com">
+                    </div>
+
+                    <div class="controls controls-row">
+
+                      <div class="span3">
+                        <label class="control-label" for="currentPassword">Current password</label>
+                        <input id="currentPassword" class="span12" type="password" value="notSoSecret"> 
+                      </div>
+
+                      <div class="span3">
+                        <label class="control-label" for="newPassword">New password</label>
+                        <input id="newPassword" class="span12" type="password"> 
+                      </div>
+
+                      <div class="span3">
+                        <label class="control-label" for="confirmNewPassword">Confirm password</label>
+                        <input id="confirmNewPassword" class="span12" type="password"> 
+                      </div>
+
+                    </div> <!--controls-row-->
+
+                    <div class="controls">
+               
+                      <button type="submit" class="saveAccountInfo btn btn-primary" data-loading-text="Saving..." autocomplete="off">Save changes</button>
+
+                      <div class="validate">
+                        <span class="span12 validateMsg alert">Validation message / info text</span>
+                      </div>
+                    </div><!--controls-->
+                  </div> <!--span7 left content-->
+
+                  <div class="rightSocialContent span5">
+                    <div class="well">
+                      <h4 class="lead">What's this for?</h4>
+                      <p>Your profile is used as your default shipping address when you make a purchase, your profile for direct payments, and when you accept or give donations.</p>
+                      <p>We never share this information with anyone until you complete a transaction, and you can update your information at any time.</p>
+                    </div>
+                  </div> <!--span5 right content-->
+
+                </form>
+              </div> <!--span12-->
+            </div> <!--row-fluid-->
+          </div> <!--.container-fluid-->
         </section> <!--#userInfo-->
 
-        <section id="notifications" class="tab-pane" >
-          <h3>Notifications</h3>
+        <section id="notifications" class="tab-pane">
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="span12">
+                <h3>Notifications</h3>
+
+                <p>Set your communication preferences.<p>
+
+                <div class="controls controls-row">
+                  <button type="button" class="btn btn-primary btn-large active span4" data-toggle="button"><i class="icon-ok icon-white pull-left"></i> DM me receipts from Twitter</button>
+
+                  <button type="button" class="btn btn-large span4" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Email me receipts</button>
+                </div> <!--controls-row-->
+
+                <div class="controls controls-row">
+                 <button type="button" class="btn btn-large span4" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Email me news &amp; updates</button>
+
+                 <button type="button" class="btn btn-large span4" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Future preference</button>
+
+                </div> <!--controls-row-->
+              </div> <!--span12-->
+            </div> <!--row-fluid-->
+          </div>
         </section> <!--#notifications-->
 
         <section id="paymentInfo" class="tab-pane">
-          <h3>Payment Info</h3>
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="span12">
+                <h3>Payment Info</h3>
+
+                <p>Future plan content here. Reference wireframes for possible layout ideas.<p>
+
+              </div> <!--span12-->
+            </div> <!--row-fluid-->
+          </div>
         </section><!--#paymentInfo-->
 
         <section id="advanced" class="tab-pane">
-          <h3>Advanced Settings</h3>
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="span12">
+                <h3>Advanced Settings</h3>
+
+                <p>Future advanced settings content here. Reference wireframes for possible layout ideas.<p>
+
+                <button type="button" class="btn btn-small btn-danger" data-loading-text="Deleting...">Delete account</button>
+
+              </div> <!--span12-->
+            </div> <!--row-fluid-->
+          </div>
         </section><!--#paymentInfo-->
       </div>
     </div><!--.span9-->
