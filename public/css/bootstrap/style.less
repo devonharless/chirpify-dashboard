@@ -28,6 +28,10 @@ body {
   color: #08C;
 }
 
+.modal-backdrop {
+  opacity: 0.3;
+}
+
 
 /* hide the dotted lines around an element when it receives focus */
 
@@ -313,6 +317,7 @@ body {
 }
 
 /* Listing page / Individual Listing view */
+
 #listings {
   .listingFilters.well {
     width: 70%;
@@ -326,6 +331,64 @@ body {
     font-style: normal;
     text-transform: uppercase;
 
+  }
+}
+
+
+/* Transition modal in an individual listing page */
+
+#transitions {
+  width: 700px;
+
+  .modal-header {
+    padding-bottom: 0;
+  }
+
+  .flowRef {
+    width: 92%;
+    margin-bottom: 9px;
+  }
+
+  .row-fluid {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  h4 {
+    font-size: 22px;
+    font-weight: 200;
+  }
+
+  .form-search .search-query {
+    font-size: 12px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 5px;
+  }
+}
+
+/* Instagram Gallery */
+
+#instagramGallery {
+  #gallery {
+    padding-top: 20px;
+  }
+  .carousel-inner {
+    width: 96%;
+    margin-left: 18px;
+  }
+  .instagramPhoto {
+    width: 110px;
+    height: 110px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block; 
+
+    .img-polaroid {
+      &:hover {
+        border: 1px solid #08c;
+      }
+    }
   }
 }
 

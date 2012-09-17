@@ -19,6 +19,7 @@ $(document).ready(function() {
 
   //Bootstrap JS defaults
   $('.nav-tabs').button();  
+  $('#gallery').carousel('pause');
 
   //Popovers should be dismissed/toggled when a user clicks outside of the element. Ugh.
   $(document).click(function(e) {
@@ -59,11 +60,13 @@ $(document).ready(function() {
   $('#mainTabs a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
+
   });
 
   $('.subNav a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
+    $('.modal').modal('close');
   })
 
   $('#topNavAccount a').click(function (e) {
@@ -383,10 +386,14 @@ $(document).ready(function() {
   function toggleUpload(e) {
     e.preventDefault();
 
-    if($(e.target).hasClass('typeDigital')) 
+    if($(e.target).hasClass('typeDigital')) {
       $('.uploadFile').show();
-    else
+      $('.shipInfo').hide();
+    }
+    else {
       $('.uploadFile').hide();
+      $('.shipInfo').show();
+    }
   }
 
   //Side frame is shown, allowing the user to review their new listing info, social stream specific

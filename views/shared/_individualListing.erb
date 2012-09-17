@@ -1,13 +1,13 @@
 <!-- Individual listing modal -->
 
-<div id="">  
+<div id="individuaListing1">  
   <ul class="breadcrumb flowRef">
-    <li><a class="returnToListings" href="#">&#60; Back to Listings</a> <span class="divider">/</span></li>
+    <li><a class="returnToListings" href="#">&#60; Back to all listings</a> <span class="divider">/</span></li>
     <li class="individualBC active">Individual listing title</li>
   </ul>
 
-  <div>
-    
+  <div class="mainListingContent">
+    <%= erb :'modals/_transactions' %>
     <%= erb :'partials/_editListing' %>
     
     <div id="listing_ID" class="container-fluid">
@@ -78,7 +78,7 @@
             <hr/>
             <div class="controls controls-row">
               <dfn>Listing Transactions</dfn>
-              <a class="btn pull-right" href="#"><i class="icon-tags"></i> See more</a>
+              <a class="btn pull-right" href="#transitions" data-toggle="modal"><i class="icon-tags"></i> See more</a>
             </div> <!--controls-row-->
 
             <div class="controls controls-row">

@@ -34,20 +34,20 @@
                 <button class="btn typeToggle btn-small active" type="button">Physical</button>
                 <button class="typeDigital typeToggle btn btn-small" type="button">Digital</button>
               </div>
-
-              <div class="uploadFile breadcrumb hide hidden-phone">
-                <button class="btn btn-small" type="button"><i class="icon-upload"></i> Upload file</a></button>
-                <small>Upload processing text.</small>
-              </div>
             </div>
 
-            <div class="span3 input-append">
+            <div class="uploadFile span5 breadcrumb hide hidden-phone">
+                <button class="btn btn-small" type="button"><i class="icon-upload"></i> Upload file</button>
+                <small>Upload processing text.</small>
+            </div>
+
+            <div class="shipInfo span3 input-append">
               <label class="control-label" for="createShipTime">Ships in</label>
               <input id="createQuantity"  class="span6" type="text" placeholder="0">
               <span class="add-on">days</span>
             </div>
 
-            <div class="span3 input-prepend">
+            <div class="shipInfo span3 input-prepend">
               <label class="control-label" for="createShipCost">Cost</label>
               <span class="add-on">$</span>
               <input id="createShipCost" class="span5" type="text" placeholder="0">
@@ -57,10 +57,11 @@
           <div class="controls controls-row createMedia">
             <div class="span3">
               <button type="button" class="btn btn-block hidden-phone">Upload</button>
-              <button type="button" class="instagramGallery hide btn btn-block">Instagram</button>
+              <button type="button" href="#instagramGallery" data-toggle="modal" class="instagramGallery btn btn-block hide">Instagram</button>
               <br>
-              <div class="validate fileUpload breadcrumb hidden-phone">
-                <small>Validation message / info text here.</small>
+
+              <div class="validate alert hidden-phone">
+                <span class="validateMsg">Validation message / info text</span>
               </div>
             </div>
 
@@ -112,7 +113,7 @@
           <div class="controls controls-row">
 
             <div class="controls controls-row">
-              <button type="submit" id="publishEdits" class="pubSaveListing btn btn-primary" data-loading-text="Publishing..." autocomplete="off">Publish</button>
+              <button type="submit" id="publishEdits" class="pubSaveListing btn btn-success" data-loading-text="Publishing..." autocomplete="off">Publish</button>
               <button type="submit" class="pubSaveListing btn" data-loading-text="Saving..." autocomplete="off">Save as draft</button>
               <button id="editListingCancel" type="button" class="btn btn-link pull-right">Cancel</button>
             </div> <!--controls-row-->
