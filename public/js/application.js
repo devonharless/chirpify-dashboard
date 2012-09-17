@@ -66,7 +66,11 @@ $(document).ready(function() {
   $('.subNav a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
-    $('.modal').modal('close');
+
+    //Set to global '.modal' if you want all modals to hide on selection of other tabs
+    //Remove the line entirely if you want to maintain state throughout the tabs. 
+    //Ex. Editing an individual listing > Go to 'New Listing' > Return to state with edits in place
+    $('#instagramGallery.modal').modal('close');
   })
 
   $('#topNavAccount a').click(function (e) {
