@@ -1,0 +1,439 @@
+/*------------------------------------------------------------------
+[Global Stylesheet]
+LESS Framework
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Utilities
+2. Layout & Background / #container
+3. Header / .navbar
+4. Inner Content / .container
+5. Responsiveness
+
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[1. Utilities ]
+*/
+::selection,
+::-moz-selection,
+::-webkit-selection {
+  background: #525252;
+  color: #08C;
+}
+.modal-backdrop {
+  opacity: 0.3;
+}
+/*------------------------------------------------------------------
+[2. Layout structure & Background ]
+*/
+/* Side navigation panels */
+.container.tab-pane {
+  margin-top: 100px;
+}
+.actions {
+  margin-top: 20px;
+}
+.actions .subNav.nav-tabs.nav-stacked a {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.actions .subNav.nav-tabs.nav-stacked a i {
+  margin-top: -1px;
+  padding-left: 5px;
+}
+.actions .subNav.nav-tabs.nav-stacked li.active a {
+  background: #08C;
+  color: #fff;
+}
+/*------------------------------------------------------------------
+[3. Header ]
+*/
+#topNav,
+#mainNav {
+  margin-bottom: 0;
+}
+#mainNav {
+  margin-top: 38px;
+  z-index: 20;
+}
+#mainNav #mainTabs {
+  border-bottom: none;
+}
+#mainNav #mainTabs li a {
+  padding-bottom: 8px;
+}
+#mainNav #mainTabs.nav > .active a {
+  background: #525252;
+}
+.navbar a.brand {
+  padding: 5px 20px;
+}
+.navbar .avatar {
+  float: left;
+  width: 40px;
+  height: 40px;
+  padding-right: 5px;
+}
+.navbar .fullname,
+.navbar small {
+  display: block;
+}
+/*------------------------------------------------------------------
+[4. Inner Content ]
+*/
+/* Create Listing */
+.controls-row {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.createMedia.controls-row {
+  margin-top: 3em;
+}
+#addSocialStream {
+  margin: 2em 0;
+}
+.uploadFile {
+  margin: 5px 0 0;
+  padding: 5px 0 5px 5px;
+}
+.uploadFile small {
+  display: block;
+  font-size: 11px;
+}
+/* Direct Payments View */
+#direct p {
+  margin-bottom: 2.5em;
+}
+#direct #createDirectPayment {
+  height: 100px;
+}
+#direct .validate {
+  margin-top: 1em;
+}
+/* Social Accounts View */
+#socialContainer #socialInfo a.addSocialStream {
+  margin-top: 1em;
+}
+#socialList {
+  margin: 2em 0 0;
+}
+#socialList li {
+  margin: 0 8px 0 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+#socialList li small {
+  margin: 5px 0;
+  display: block;
+}
+#socialList li .socialImage {
+  margin-right: 5px;
+  height: 90px;
+  background: #f1faff url(http://placedog.com/70/70) no-repeat center center;
+}
+/* Account Info View */
+#settingInfo .userImage {
+  margin-right: 5px;
+  height: 90px;
+  background: #f1faff url(http://placedog.com/70/70) no-repeat center center;
+}
+#settingInfo input {
+  font-size: 12px;
+}
+#settingInfo label {
+  font-weight: 500;
+  font-size: 12px;
+}
+#settingInfo .validate {
+  margin-top: 1em;
+}
+/* Create Listing Social Panel */
+#currentSocialPanel,
+.socialStreamPanel {
+  position: absolute;
+  width: 337px;
+  top: 100px;
+  height: 685px;
+  margin: 0;
+  z-index: 220;
+}
+#currentSocialPanel .content,
+.socialStreamPanel .content {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #f1faff url('/img/bg.png') repeat;
+  border-left: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 210;
+}
+#currentSocialPanel img,
+.socialStreamPanel img {
+  border: 1px solid #08C;
+}
+#currentSocialPanel #currentSideTabs.nav-tabs.nav-stacked,
+.socialStreamPanel #currentSideTabs.nav-tabs.nav-stacked,
+#currentSocialPanel #sideTabs.nav-tabs.nav-stacked,
+.socialStreamPanel #sideTabs.nav-tabs.nav-stacked {
+  position: absolute;
+  left: -80px;
+  width: 85px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+#currentSocialPanel #currentSideTabs.nav-tabs.nav-stacked a,
+.socialStreamPanel #currentSideTabs.nav-tabs.nav-stacked a,
+#currentSocialPanel #sideTabs.nav-tabs.nav-stacked a,
+.socialStreamPanel #sideTabs.nav-tabs.nav-stacked a {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+#currentSocialPanel #currentSideTabs.nav-tabs.nav-stacked .active a,
+.socialStreamPanel #currentSideTabs.nav-tabs.nav-stacked .active a,
+#currentSocialPanel #sideTabs.nav-tabs.nav-stacked .active a,
+.socialStreamPanel #sideTabs.nav-tabs.nav-stacked .active a {
+  color: #fff;
+  background: #08C;
+}
+#currentSocialPanel .descContent,
+.socialStreamPanel .descContent,
+#currentSocialPanel .previewContent,
+.socialStreamPanel .previewContent {
+  padding-top: 1em;
+  border-top: 1px solid #ddd;
+}
+#currentSocialPanel .modal-body,
+.socialStreamPanel .modal-body {
+  padding-top: 0;
+  max-height: none;
+}
+#currentSocialPanel .mediaContainer,
+.socialStreamPanel .mediaContainer {
+  text-align: center;
+}
+#currentSocialPanel .span2,
+.socialStreamPanel .span2 {
+  margin-right: 5px;
+}
+#currentSocialPanel .lead,
+.socialStreamPanel .lead {
+  font-size: 17px;
+}
+#currentSocialPanel .listingText,
+.socialStreamPanel .listingText {
+  font-size: 12px;
+}
+#currentSocialPanel .listingDesc,
+.socialStreamPanel .listingDesc {
+  width: 96%;
+  height: 70px;
+  margin-left: 0px;
+  font-size: 11px;
+  line-height: 15px;
+}
+#currentSocialPanel .charCount,
+.socialStreamPanel .charCount {
+  margin-left: 10px;
+}
+#currentSocialPanel small,
+.socialStreamPanel small {
+  font-size: 11px;
+  display: block;
+}
+/* Receipts page / Individual Receipt Popover */
+#receipts .receiptFilters.well {
+  width: 70%;
+  margin: 0 auto;
+  background: #f4f4f4 url('/img/bg.png') repeat;
+}
+#receipts dfn {
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+/* Listing page / Individual Listing view */
+#listings .listingFilters.well {
+  width: 70%;
+  margin: 0 auto;
+  background: #f4f4f4 url('/img/bg.png') repeat;
+}
+#listings dfn {
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+/* Transition modal in an individual listing page */
+#transitions {
+  width: 700px;
+}
+#transitions .modal-header {
+  padding-bottom: 0;
+}
+#transitions .flowRef {
+  width: 92%;
+  margin-bottom: 9px;
+}
+#transitions .row-fluid {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+#transitions h4 {
+  font-size: 22px;
+  font-weight: 200;
+}
+#transitions .form-search .search-query {
+  font-size: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 5px;
+}
+/* Instagram Gallery */
+#instagramGallery #gallery {
+  padding-top: 20px;
+}
+#instagramGallery .carousel-inner {
+  width: 96%;
+  margin-left: 18px;
+}
+#instagramGallery .instagramPhoto {
+  width: 110px;
+  height: 110px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: block;
+}
+#instagramGallery .instagramPhoto .img-polaroid:hover {
+  border: 1px solid #08c;
+}
+.longList {
+  width: 90%;
+  list-style: none;
+  margin: 0 auto;
+  padding: 1em 0 0;
+}
+.longList .individualListing,
+.longList .individualReceipt {
+  margin-top: 0.5em;
+  padding: 0;
+  background: #FCFCFC;
+  border-radius: 8px;
+  border-top: 1px solid #f4f4f4;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+.longList .individualListing .listingImage,
+.longList .individualReceipt .listingImage,
+.longList .individualListing .receiptImage,
+.longList .individualReceipt .receiptImage {
+  height: 100px;
+  background: url(http://placedog.com/300/300) no-repeat center center;
+  border-radius: 8px 0 0 8px;
+  overflow: hidden;
+}
+.longList .individualListing h1,
+.longList .individualReceipt h1 {
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.longList .individualListing .listingExtras,
+.longList .individualReceipt .listingExtras,
+.longList .individualListing .receiptExtras,
+.longList .individualReceipt .receiptExtras {
+  max-width: 500px;
+  margin-top: 1em;
+}
+.longList .individualListing .listingExtras small,
+.longList .individualReceipt .listingExtras small,
+.longList .individualListing .receiptExtras small,
+.longList .individualReceipt .receiptExtras small {
+  font-style: italic;
+  font-size: 12px;
+  display: block;
+}
+.longList .individualListing:hover {
+  cursor: pointer;
+  background: #f1faff;
+}
+#receiptList,
+#listingList {
+  margin-bottom: 4em;
+}
+.infscr-loading {
+  display: none;
+}
+/*------------------------------------------------------------------
+[5. Responsiveness ]
+*/
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  #mainNav {
+    margin-top: 0;
+  }
+  #mainTabs {
+    margin-left: 25px;
+  }
+  #mainNav #mainTabs.nav > .active a {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .container.tab-pane {
+    margin-top: 20px;
+  }
+  #listings .listingFilters.well,
+  #receipts .receiptFilters.well {
+    width: 84%;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  #mainNav {
+    margin-top: 0;
+  }
+  #mainTabs {
+    margin-left: 15px;
+  }
+  #mainNav #mainTabs.nav > .active a {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .container.tab-pane {
+    margin-top: 0px;
+  }
+  #listings .listingFilters.well,
+  #receipts .receiptFilters.well {
+    width: 84%;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  #mainNav {
+    margin-top: 0;
+  }
+  #mainTabs {
+    margin-left: 15px;
+  }
+  #mainNav #mainTabs.nav > .active a {
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .container.tab-pane {
+    margin-top: 0px;
+  }
+  #listings .listingFilters.well,
+  #receipts .receiptFilters.well {
+    width: 88%;
+  }
+}
