@@ -288,7 +288,7 @@ $(document).ready(function() {
     //Loading state, validating state, etc
     $(e.target).button('loading');
     $('.pubSaveNewListing').die('click', pubSaveNewListing);
-    $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
+    $('.rightSocialContent .validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
     
     //Time delay to fake saving of data, validation showing, etc.
     setTimeout(function() {
