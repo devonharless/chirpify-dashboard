@@ -35,7 +35,7 @@
 
           <div class="row-fluid">
             <ul id="receiptList" class="longList">
-              <%= erb :'partials/_receipts' %>
+              <%= erb :'/transactions/_receipts' %>
             </ul>
             <nav id="receipt_nav" style="display: none; ">
               <a href="/receipts/2.html"></a>
@@ -44,7 +44,7 @@
         </section> <!--#listings-->
 
         <section id="individualListingPage" class="tab-pane">
-          <%= erb :'shared/_individualListing' %>
+          <%= erb :'/transactions/_individualListing' %>
         </section>
 
         <section id="listings" class="tab-pane">
@@ -70,7 +70,7 @@
 
           <div class="row-fluid">
             <ul id="listingList" class="longList">
-              <%= erb :'partials/_listings' %>
+              <%= erb :'/transactions/_listings' %>
             </ul>
             <nav id="listing_nav" style="display: none; ">
               <a href="/listings/2.html"></a>
@@ -79,7 +79,7 @@
         </section> <!--#listings-->
 
         <section id="create" class="tab-pane" >
-          <%= erb :'partials/_createListing' %>
+          <%= erb :'/create/_newListing' %>
         </section>
 
         <section id="direct" class="tab-pane">

@@ -19,10 +19,6 @@ LESS Framework
 [1. Utilities ]
 */
 
-body {
-  //padding-top: 40px;
-}
-
 ::selection, ::-moz-selection, ::-webkit-selection {
   background: #525252;
   color: #08C;
@@ -32,13 +28,36 @@ body {
   opacity: 0.3;
 }
 
-
-/* hide the dotted lines around an element when it receives focus */
-
 /*------------------------------------------------------------------
 [2. Layout structure & Background ]
 */
 
+/* Side navigation panels */
+.container.tab-pane {
+  margin-top: 100px;
+}
+.actions { margin-top: 20px; }
+
+.actions .subNav.nav-tabs.nav-stacked {
+
+  a {
+    font-size: 10px;
+    //border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+
+    i {
+      margin-top: -1px;
+      padding-left: 5px;
+    }
+  }
+
+  li.active a {
+    background: #08C;
+    color: #fff;
+  }
+}
 
 /*------------------------------------------------------------------
 [3. Header ]
@@ -86,33 +105,6 @@ body {
 [4. Inner Content ]
 */
 
-
-/* Side navigation panels */
-.container.tab-pane {
-  margin-top: 100px;
-}
-.actions { margin-top: 20px; }
-
-.actions .subNav.nav-tabs.nav-stacked {
-
-  a {
-    font-size: 10px;
-    //border: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-
-    i {
-      margin-top: -1px;
-      padding-left: 5px;
-    }
-  }
-
-  li.active a {
-    background: #08C;
-    color: #fff;
-  }
-}
 
 /* Create Listing */
 
@@ -333,7 +325,6 @@ body {
 
   }
 }
-
 
 /* Transition modal in an individual listing page */
 

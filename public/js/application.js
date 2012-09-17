@@ -8,8 +8,10 @@ $(document).ready(function() {
   [Table of contents]
 
   1. Defaults & Global
-  2. Event Assignment
-  3. View specific functions
+  2. Receipts
+  3. Listings
+  4. New Listing
+  5. Account & Social Streams
 
   -------------------------------------------------------------------*/
 
@@ -21,61 +23,16 @@ $(document).ready(function() {
   $('.nav-tabs').button();  
   $('#gallery').carousel('pause');
 
-  //Popovers should be dismissed/toggled when a user clicks outside of the element. Ugh.
-  $(document).click(function(e) {
-    $('#receiptList .individualReceipt .receiptExtras .viewMore').popover('hide');
-  });
-
-  //Infinite Scroll for Receipts - Referenced from https://github.com/paulirish/infinite-scroll, used in Isotope
-
-  $('#receiptList').infinitescroll({
- 
-    navSelector  : "#receipt_nav",            
-                   // selector for the paged navigation (it will be hidden)
-    nextSelector : "#receipt_nav a:first",    
-                   // selector for the NEXT link (to page 2)
-    itemSelector : ".individualReceipt",
-                   // selector for all items you'll retrieve               
-  });
-
-  //Infinite Scroll for Listings, more of the same
-  
-  $('#listingList').infinitescroll({
- 
-    navSelector  : "#listing_nav",            
-                   // selector for the paged navigation (it will be hidden)
-    nextSelector : "#listing_nav a:first",    
-                   // selector for the NEXT link (to page 2)
-    itemSelector : ".individualListing"
-                   // selector for all items you'll retrieve
-  });
-
-  /*------------------------------------------------------------------
-  [2. Event Assignment ]
-  */
-
-
   //--- Navigation, Tabs --- 'index.erb' & 'partials/_topnav.erb'
 
-  $('#mainTabs a').click(function (e) {
+  $('#mainTabs a, .subNav a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
-
   });
-
-  $('.subNav a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-
-    //Set to global '.modal' if you want all modals to hide on selection of other tabs
-    //Remove the line entirely if you want to maintain state throughout the tabs. 
-    //Ex. Editing an individual listing > Go to 'New Listing' > Return to state with edits in place
-    $('#instagramGallery.modal').modal('close');
-  })
 
   $('#topNavAccount a').click(function (e) {
     e.preventDefault();
-    $('#accountNavBtn').trigger('click')
+    $('#accountNavBtn').trigger('click');
   });
 
   $('#topNavSocial a').click(function (e) {
@@ -83,19 +40,37 @@ $(document).ready(function() {
     $('#socialNavBtn').trigger('click');
   });
 
-  /* Social view events */
+  //Popovers should be dismissed/toggled when a user clicks outside of the element. Ugh.
+  $(document).click(function(e) {
+    $('#receiptList .individualReceipt .receiptExtras .viewMore').popover('hide');
+  });
 
-  $('#socialList .removeSocialAccount').live('click', removeSocialAccount);
 
+  /*------------------------------------------------------------------
+  [2. Receipts --- 'partials/_mainContent.erb' & transactions/_receipts.erb' ]
+  */
+  
+  //Infinite Scroll for Receipts - Referenced from https://github.com/paulirish/infinite-scroll, used in Isotope
+
+  $('#receiptList').infinitescroll({
+    navSelector  : "#receipt_nav",            
+                   // selector for the paged navigation (it will be hidden)
+    nextSelector : "#receipt_nav a:first",    
+                   // selector for the NEXT link (to page 2)
+    itemSelector : ".individualReceipt",
+                   // selector for all items you'll retrieve               
+  });
+  
+  // Receipt view - Popover of more info on user selection
   var receiptNameAddress = '<div class="controls"><address><strong>User Name</strong><br>795 Folsom Ave, Suite 600<br>San Francisco, CA 94107<br></address></div>';
   var receiptControls = '<div class="controls controls-row"><button type="button" class="downloadFile btn btn-success btn-small">Download file</button> <button type="button" class="deleteReceipt btn btn-small">Delete receipt</button></div>'
   var receiptContent = receiptNameAddress + receiptControls;
   
-  //--- Receipt View --- 'listingContent.erb' & partials/_receipts.erb'
-  $('#receiptList .individualReceipt .receiptExtras .viewMore').click(function(event){
-       event.stopPropagation();
+  $('#receiptList .individualReceipt .receiptExtras .viewMore').click(function(e){
+    e.stopPropagation();
    });
 
+  //Bootstrap Popover default changes
   $('#receiptList .individualReceipt .receiptExtras .viewMore').popover({
     toggle: true,
     trigger: 'click',
@@ -105,8 +80,19 @@ $(document).ready(function() {
     placement: 'top'
   });
 
+  /*------------------------------------------------------------------
+  [3. Listings --- 'partials/_mainContent.erb' & transactions/_listings.erb' & 'transactions/_individualListing.erb' & 'transactions/_editListing.erb']
+  */
 
-  //--- Listing View --- 'listingContent.erb' & partials/_listings.erb'
+  //Infinite Scroll for Listings, similar to Receipts view
+  $('#listingList').infinitescroll({
+    navSelector  : "#listing_nav",            
+                   // selector for the paged navigation (it will be hidden)
+    nextSelector : "#listing_nav a:first",    
+                   // selector for the NEXT link (to page 2)
+    itemSelector : ".individualListing"
+                   // selector for all items you'll retrieve
+  });
 
   // Show an individual listing after user selection of a receipt
   $('#listingList .individualListing').click(function (e) {
@@ -115,7 +101,6 @@ $(document).ready(function() {
     //show an individual listing & hide the main receipt/listing
     $('#listings').removeClass('active');
     $('#individualListingPage').addClass('active');
-  
   });
 
   $('.returnToListings').click(function (e) {
@@ -130,17 +115,19 @@ $(document).ready(function() {
 
     $('.individualBC').addClass('active').html('Individual listing title');
     $('.editBC').remove();
-  
   });
 
   // Individual Listing > Edit Listing
-
   $('#editListingBtn').live('click', editIndividualListing);
   $('.individualBC').live('click', cancelEditListing);
   $('.currentSocialStreamBtns').live('click', toggleCurrentSocialSettings);
   $('.editSocialStream').live('click', showSocialStreams);
   $('#currentSocialPanel .closePanel').live('click', dismissCurrentStreamChanges);
   $('#currentSocialPanel .savePanelChanges').live('click', saveCurrentStreamChanges);
+
+  // Edit Listing > Cancel
+  $('#editListingCancel').live('click', cancelEditListing);
+  $('#editListing .pubSaveListing').live('click', saveListingChanges);
 
   $('#currentSideTabs a').click(function (e) {
     e.preventDefault();
@@ -163,72 +150,19 @@ $(document).ready(function() {
       $(e.target).button('reset');
       
     }, 4000);
-  
   });
-
-
-  // Edit Listing > Cancel
-
-  $('#editListingCancel').live('click', cancelEditListing);
-  $('#editListing .pubSaveListing').live('click', saveListingChanges);
-
-
-  //--- New Listing View --- 'partials/_createListing.erb'
-  
-  $('#sideTabs a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-  });
-
-  $('.editNewSocialStream').live('click', showNewSocialStreams);
-  $('.socialStreamPanel .closePanel').live('click', dismissStreamChanges);
-  $('.socialStreamPanel .savePanelChanges').live('click', saveStreamChanges);
-  $('.pubSaveNewListing').live('click', pubSaveNewListing);
-
-  $('.typeToggle').live('click', toggleUpload);
-  $('.newSocialStreamBtns').live('click', toggleNewSocialSettings);
-
-
-  /*------------------------------------------------------------------
-  [3. View-specific functions ]
-  */
-
-  //---Social Accounts View --- 'partials/_socialContent.erb'
-
-  function removeSocialAccount(e) {
-    e.preventDefault();
-
-    //User intends to remove their activated social account from Chirpify
-    $(e.target).button('loading');
-    
-    //Time delay to fake saving of data, validation showing, etc.
-    setTimeout(function() {
-      //Ajax calls for submit/or save as draft depending on user selection. 
-      
-      //Reset the button state from loading to 'normal'
-      //$(e.target).button('reset');
-      $(e.target).parent().parent().parent().fadeOut();
-    }, 4000);
-
-  }
-
-
-  //--- Individual Listing View --- 'shared/_individualListing.erb'
 
   function editIndividualListing(e) {
     e.preventDefault();
 
     //User intends to edit their pre-existing listing after reviewing their receipt info
     //View swaps to a view similars to 'partials/creatListing.erb', content in inputs, form, etc.
-    
     $('#listing_ID').hide();
     $('#editListing').show();
 
     $('.individualBC').removeClass('active').html('<li><a href="#">Individual listing title</a> <span class="divider">/</span></li>');
     $('#individualListingPage .flowRef').append('<li class="editBC active">Edit listing</li>');
   }
-
-  //--- Edit Individual Listing View / Cancel --- 'shared/individualListing.erb'
 
   function cancelEditListing(e) {
     //Cancel editing an individual listing - return to the individual listing in passive viewing mode
@@ -273,8 +207,7 @@ $(document).ready(function() {
     
     //Time delay to fake saving of data, validation showing, etc.
     setTimeout(function() {
-      //Ajax calls for submit/or save as draft depending on user selection. 
-      
+      //Ajax calls for submit/or save as draft depending on user selection.       
       //Reset the button state from loading to 'normal'
       $(e.target).button('reset');
 
@@ -292,12 +225,7 @@ $(document).ready(function() {
     }, 4000);
   }
 
-
-  //---Edit Current Listing View --- 'partials/_editListing.erb'
-
-
   function showSocialStreams(e) {
-    console.log('CURRENT SOCIAL STREAM');
     e.preventDefault();
     $('#currentSocialPanel').show();
 
@@ -307,6 +235,7 @@ $(document).ready(function() {
     $('#currentSideTabs').find('li a[href="'+shownTabId+'"]').parent().removeClass('hide');
     $('#currentSideTabs').find('li a[href="'+shownTabId+'"]').trigger('click');
 
+    //Adjust the social panel's width based on the window
     if($(window).width() > 1200)
       var newWidth = $('#editListing .rightSocialContent').width() + 'px';
     else
@@ -322,14 +251,13 @@ $(document).ready(function() {
   function saveCurrentStreamChanges(e) {
     e.preventDefault();
     
-    //Saving state, validating state, etc
+    //Saving state, validating state, etc.
     $(e.target).addClass('disabled');
     $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
     
     //Time delay to fake saving of data, validation showing, etc.
     setTimeout(function() {
       //Store user's social stream changes for their new listing
-      
       //On success, the user returns to the edit view - social stream panel hides
       $(e.target).removeClass('disabled');
       $('#currentSocialPanel').hide();
@@ -337,7 +265,22 @@ $(document).ready(function() {
   }
 
 
-  //--- New Listing View --- 'partials/_createListing.erb'
+  /*------------------------------------------------------------------
+  [4. New Listing --- 'create/_newListing.erb' & 'create/_newSocialContent.erb']
+  */
+  
+  $('#sideTabs a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });
+
+  $('.editNewSocialStream').live('click', showNewSocialStreams);
+  $('.socialStreamPanel .closePanel').live('click', dismissStreamChanges);
+  $('.socialStreamPanel .savePanelChanges').live('click', saveStreamChanges);
+  $('.pubSaveNewListing').live('click', pubSaveNewListing);
+
+  $('.typeToggle').live('click', toggleUpload);
+  $('.newSocialStreamBtns').live('click', toggleNewSocialSettings);
 
   function pubSaveNewListing(e) {
     e.preventDefault();
@@ -350,13 +293,11 @@ $(document).ready(function() {
     //Time delay to fake saving of data, validation showing, etc.
     setTimeout(function() {
       //Ajax calls for submit/or save as draft depending on user selection. 
-      
       //Reset the button state from loading to 'normal'
       $(e.target).button('reset');
       $('.pubSaveNewListing').live('click', pubSaveNewListing)
 
       //On success, the user stays on the same view - allows them to add more to their new listing/edit/etc.
-      
     }, 4000);
   }
 
@@ -420,7 +361,6 @@ $(document).ready(function() {
     $('.socialStreamPanel').width(newWidth);
   }
 
-
   function dismissStreamChanges(e) {
     $('.socialStreamPanel').hide();
   }
@@ -435,10 +375,31 @@ $(document).ready(function() {
     //Time delay to fake saving of data, validation showing, etc.
     setTimeout(function() {
       //Store user's social stream changes for their new listing
-      
       //On success, the user returns to the edit view - social stream panel hides
       $(e.target).removeClass('disabled');
       $('.socialStreamPanel').hide();
+    }, 4000);
+  }
+
+  /*------------------------------------------------------------------
+  [4. Account & Social Streams -- 'partials/_socialContent.erb' & 'partials/_accountContent.erb']
+  */
+
+  $('#socialList .removeSocialAccount').live('click', removeSocialAccount);
+
+  function removeSocialAccount(e) {
+    e.preventDefault();
+
+    //User intends to remove their activated social account from Chirpify
+    $(e.target).button('loading');
+    
+    //Time delay to fake saving of data, validation showing, etc.
+    setTimeout(function() {
+      //Ajax calls for submit/or save as draft depending on user selection. 
+      
+      //Reset the button state from loading to 'normal'
+      //$(e.target).button('reset');
+      $(e.target).parent().parent().parent().fadeOut();
     }, 4000);
   }
 

@@ -1,26 +1,25 @@
-
-<div id="createNew" class="container-fluid">
+<div id="editListing" class="container-fluid hide">
   <div class="row-fluid">
     <div class="span12">
-      <h3>Create a Listing</h3>
+      <h3>Edit Listing</h3>
       <form>
         <div class="span7">
           
           <div class="controls">
             <label class="control-label" for="createTitle">Title</label>
-            <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive">
+            <input id="createTitle" class="span11" type="text" placeholder="Make it descriptive" value="Listing title goes here, and it could be a very long title, but not toooo long">
           </div>
 
           <div class="controls controls-row">
             <div class="input-prepend span5">
               <label class="control-label" for="createPrice">Price</label>
               <span class="add-on">$</span>
-              <input id="createPrice" class="span10" type="text" placeholder="0">
+              <input id="createPrice" class="span10" type="text" placeholder="$price amount">
             </div>
 
             <div class="span6 input-append">
               <label class="control-label" for="createQty">Quantity</label>
-              <input id="createQty" class="span6" type="text" placeholder="1">
+              <input id="createQty" class="span6" type="text" placeholder="qty amount">
               or
               <label class="add-on inline" for="qtyUnlimited">
                 <input id="qtyUnlimited" class="checkbox" type="checkbox"> unlimited
@@ -59,7 +58,8 @@
             <div class="span3">
               <button type="button" class="btn btn-block hidden-phone">Upload</button>
               <button type="button" href="#instagramGallery" data-toggle="modal" class="instagramGallery btn btn-block hide">Instagram</button>
-              <br />
+              <br>
+
               <div class="validate alert hidden-phone">
                 <span class="validateMsg">Validation message / info text</span>
               </div>
@@ -75,25 +75,25 @@
         </div> <!--span7 left content-->
 
         <div class="rightSocialContent span5">
-          <%= erb :'shared/_newSocialContent' %>
+          <%= erb :'transactions/_currentSocialContent' %>
           <label>Social Streams</label>
           
           <div class="controls controls-row">
             <button type="button" class="btn btn-primary btn-large active span8"><i class="icon-ok icon-white pull-left"></i> Chirpify</button>
 
-            <button type="button" id="chirpifyStream" class="editNewSocialStream btn span3 pull-right">edit</button>
+            <button type="button" id="chirpifyCurrentStream" class="editSocialStream btn span3 pull-right">edit</button>
           </div> <!--controls-row-->
 
           <div class="controls controls-row">
-            <button type="button" class="newSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter</button>
+            <button type="button" class="currentSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Twitter</button>
 
-            <button type="button" id="twitterStream" class="editNewSocialStream hide btn span3 pull-right">edit</button>
+            <button type="button" id="twitterCurrentStream" class="editSocialStream hide btn span3 pull-right">edit</button>
           </div> <!--controls-row-->
 
           <div class="controls controls-row">
-            <button type="button" class="newSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Instagram</button>
+            <button type="button" class="currentSocialStreamBtns btn btn-large span8" data-toggle="button"><i class="icon-ban-circle pull-left"></i> Instagram</button>
 
-            <button type="button" id="instagramStream" class="editNewSocialStream hide btn span3 pull-right">edit</button>
+            <button type="button" id="instagramCurrentStream" class="editSocialStream hide btn span3 pull-right">edit</button>
           </div> <!--controls-row-->
 
           <div class="controls controls-row">
@@ -113,9 +113,14 @@
           <div class="controls controls-row">
 
             <div class="controls controls-row">
-              <button type="submit" class="pubSaveNewListing btn btn-success" data-loading-text="Publishing..." autocomplete="off">Publish</button>
-              <button type="submit" class="pubSaveNewListing btn" data-loading-text="Saving..." autocomplete="off">Save as draft</button>
+              <button type="submit" id="publishEdits" class="pubSaveListing btn btn-success" data-loading-text="Publishing..." autocomplete="off">Publish</button>
+              <button type="submit" class="pubSaveListing btn" data-loading-text="Saving..." autocomplete="off">Save as draft</button>
+              <button id="editListingCancel" type="button" class="btn btn-link pull-right">Cancel</button>
             </div> <!--controls-row-->
+
+            <div class="controls controls-row">
+              <button type="submit" class="deleteListing btn btn-danger pull-left" data-loading-text="Deleting..." autocomplete="off">Delete</button>
+            </div>
 
             <div class="validate">
               <span class="span12 validateMsg alert">Validation message / info text</span>
