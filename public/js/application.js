@@ -202,8 +202,9 @@ $(document).ready(function() {
 
   function saveListingChanges(e) {
     //Save all of the user's changes - social context, input changes, etc.
+    e.preventDefault();
     $(e.target).button('loading');
-    $('.validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
+    $('.rightSocialContent .validateMsg').text('Validation message shown here if there are errors. Otherwise, this element is normally hidden.');
     
     //Time delay to fake saving of data, validation showing, etc.
     setTimeout(function() {
